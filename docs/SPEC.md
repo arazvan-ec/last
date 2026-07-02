@@ -40,7 +40,7 @@ Invariantes:
 ## 4. Métrica de éxito única (machine-checkable)
 
 ```
-node --test tools/            # todos los tests verdes, y en particular:
+node --test                   # todos los tests verdes, y en particular:
 node tools/resolve-deps.mjs pantalones-piel-reforzados
 ```
 
