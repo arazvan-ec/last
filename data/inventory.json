@@ -6,15 +6,21 @@
     "nombre": "Alin (in-game: Radec#4354)",
     "nivel": 82,
     "estaciones_construidas": [
-      "Fundición (horno con chimenea, sobre parche de tierra)",
-      "Banco de armero — probable (mesa grande con rifle y bombonas de soldadura)",
-      "Mesa de electricista o similar — por confirmar (mueble alto de paneles junto a la fundición)",
-      "Ducha (torre de madera con pila)",
-      "Colector/barril de agua de lluvia — probable",
+      "Banco de trabajo ×2 (mesa metálica con motor eléctrico azul — aquí se hacen las placas)",
+      "Fundición (horno con chimenea, lado suroeste)",
+      "Fundición refinada — probable (horno grande con cubierta de cuero + chimenea, centro)",
+      "Mesa de costura (escritorio con máquina de coser)",
+      "Banco de armero (mesa grande con armas y bombonas de soldadura, lado este)",
+      "Mesa de electricista (escritorio con placas de circuito, sureste)",
+      "CB Radio (transceptor militar verde sobre escritorio) — códigos de Bunker Alfa",
+      "Curtidor ×2-3 (bastidores de piel en el exterior este)",
+      "Ducha + colector de agua de lluvia",
       "Perrera con 3-4 perros (casetas azul y roja + caja de crianza)",
-      "2 hogueras con asador (exterior sur)",
-      "Garaje de piedra con el Chopper aparcado"
+      "Huerto/campo arado grande + 2 hogueras con olla (exterior suroeste)",
+      "Garaje de piedra: Chopper + taller (pared de herramientas, mesa con tornillo de banco)",
+      "Taquilla/armario metálico junto a la fundición refinada"
     ],
+    "estaciones_por_confirmar": ["Reciclador", "Mesa del cantero", "Mesa médica"],
     "vehiculos": ["Chopper construido (visto aparcado en garaje de piedra, captura 2026-07-02)"],
     "equipado": [
       "Hacha (durabilidad baja)",
@@ -24,7 +30,7 @@
       "Botas",
       "Sin gorro"
     ],
-    "notas": "Stats: daño 20 · vel. ataque 1,1 · movimiento 42 · armadura 11 · frío 6 · radiación 0 · bio 3. Base: casa grande de madera con ~25 cajas, suelo parcial de piedra, zona decorativa (pared con TV, gramófono, mesa de comedor), estanques decorativos y trampas de pinchos en el perímetro. PENDIENTE: contenido de las cajas y confirmar estaciones clave (Curtidor, Banco de trabajo, Fundición refinada, Mesa de costura, Reciclador, Mesa del cantero, Mesa médica, CB Radio) — la captura en modo construcción las muestra translúcidas."
+    "notas": "Stats: daño 20 · vel. ataque 1,1 · movimiento 42 · armadura 11 · frío 6 · radiación 0 · bio 3. Base: casa grande con ~20-25 cajas ETIQUETADAS con iconos (tronco=madera, llave inglesa azul=componentes/herramientas, aspa roja en círculo, pistola=armas, llave negra…), zona decorativa (sofá, comedor, pared con TV, gramófono, maniquí, póster), estanques y trampas de pinchos en el perímetro. PENDIENTE: volcar el contenido de las cajas (capturas de cajas abiertas, se hará incremental)."
   },
   "items": {
     "tablon-pino": 3,

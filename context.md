@@ -9,11 +9,13 @@ dónde ir y cómo organizar su base, manteniendo `data/` como fuente de verdad.
 - Objetivo activo conocido: Pantalones de piel reforzados (misión Protección contra el frío).
 - Inventario de mochila/bolsillos volcado en data/inventory.json (captura 2026-07-02).
   Lleva la chaqueta con durabilidad crítica y no lleva gorro — encaja con la misión activa.
-- Base vista (captura 2026-07-02, en modo construcción): Chopper YA construido (garaje de
-  piedra), fundición, perrera, ducha, banco de armero probable, ~25 cajas.
-- PENDIENTE (F1.4): contenido de las cajas y confirmar estaciones clave (Curtidor, Banco,
-  Fundición refinada, Costura, Reciclador, Cantero, Mesa médica, CB Radio) — pedir captura
-  de la base FUERA del modo construcción.
+- Base vista a color (2ª captura 2026-07-02): Chopper construido, Banco de trabajo ×2,
+  Fundición + refinada probable, Costura, Curtidor ×2-3, CB Radio, Banco de armero,
+  Mesa de electricista, ducha, perrera, huerto. Por confirmar: Reciclador, Cantero, Mesa médica.
+- Las cajas están etiquetadas con iconos (madera, herramientas, armas…). Contenido: se
+  volcará incrementalmente cuando Alin pase capturas de cajas abiertas.
+- Con sus estaciones, el objetivo activo (pantalones reforzados) es 100% crafteable:
+  solo falta farmear (ver node tools/plan-route.mjs pantalones-piel-reforzados).
 
 ## Qué existe
 - PLAN.md con 6 fases / 20 pasos — F0.1 completado.
@@ -30,8 +32,5 @@ dónde ir y cómo organizar su base, manteniendo `data/` como fuente de verdad.
 - No marcar pasos ✅ sin pasar su verificación. 1 paso = 1 commit + push.
 
 ## Estado actual
-- Fase 0 completada. Fase 1 casi completa: recipes (56 items), sources, objectives (7),
-  boxes y validate.mjs en verde.
-- F1.4 en 🔄: esquema de inventory.json listo, PENDIENTE que Alin aporte nivel,
-  estaciones construidas e inventario (por captura o texto).
-- Siguiente paso tras cerrar F1.4: F2.1 (tools/resolve-deps.mjs).
+- Fases 0, 1 y 2 completadas: datos + motor (resolve-deps, plan-route, validate, 7 tests verdes).
+- Siguiente paso: F3.1 (skills/ldoe-companion/SKILL.md).
