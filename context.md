@@ -24,15 +24,18 @@ dónde ir y cómo organizar su base, manteniendo `data/` como fuente de verdad.
 - No marcar pasos ✅ sin pasar su verificación. 1 paso = 1 commit + push.
 
 ## Estado actual
-- Fases 0 y 2 completadas. Fase 1 casi completa: recipes (56 items), sources,
+- Fases 0, 2 y 3 completadas. Fase 1 casi completa: recipes (56 items), sources,
   objectives (7), boxes y validate.mjs en verde.
 - Motor determinista operativo: `resolve-deps.mjs` (faltantes netos con descuento de
   inventario en cascada, exporta resolver()) y `plan-route.mjs` (ruta por zonas,
   salida markdown y JSON). 12 tests con `node --test` desde la raíz.
+- Capa agente operativa: `skills/ldoe-companion/SKILL.md` (tabla de paridad UI↔data,
+  flujo captura→datos) + prompts `planifica-sesion` / `que-reciclo` / `organiza-cajas`.
+  `docs/LEARNINGS.md` creado con la corrección de los pantalones como 1ª entrada.
 - sources.json aún no trae energía por zona: plan-route ordena por nº de items y
   soporta un campo opcional `energia` cuando se investigue.
-- F1.4 en 🔄: esquema de inventory.json listo, PENDIENTE que Alin aporte nivel,
-  estaciones construidas e inventario (por captura o texto).
-- Siguiente paso: F3.1 (SKILL.md del compañero) — o cerrar F1.4 si llegan los datos.
-- Ojo multi-sesión: el trabajo de F0–F2 vive en las ramas claude/* (main solo tiene
-  el commit inicial); PLAN.md y context.md son el punto de conflicto entre sesiones.
+- F1.4 en 🔄 EN OTRA SESIÓN (Alin volcando nivel/estaciones/inventario) — esta rama
+  no toca data/inventory.json para no pisarla.
+- Siguiente paso: F4.1 (UI que lee data/). Al fusionar ramas: PLAN.md y context.md
+  son el punto de conflicto; el trabajo F0–F3 vive en ramas claude/* (main solo
+  tiene el commit inicial).
