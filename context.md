@@ -4,6 +4,16 @@
 Compañero de progresión para Last Day on Earth. Ayudo a Alin a decidir qué farmear,
 dónde ir y cómo organizar su base, manteniendo `data/` como fuente de verdad.
 
+## Eventos activos (caducan — revisar fechas)
+
+- **Temporada de anomalías** (captura 2026-07-02): quedan **6d 2h**. Tarea visible:
+  «Ve a la anomalía climática» (timer 02:16 en pantalla, probable rotación de anomalía).
+  Contador de fichas de temporada: 17.
+- **Misión «Camino al barco»**: completar tareas diarias del mapa para desbloquear
+  «Barco atrapado en el hielo». NO es misión de crafteo → no entra en recipes/objectives;
+  se sigue aquí. Contador «Completa las tareas en el mapa» cortado en la captura
+  (¿0/3?). Pendiente: captura del panel de tareas diarias para planificar ruta exacta.
+
 ## Qué sé del usuario
 - Juega en español; versión del juego ~1.49.5 (jul-2026). In-game: Radec#4354, **nivel 82**.
 - Objetivo activo conocido: Pantalones de piel reforzados (misión Protección contra el frío).
