@@ -103,7 +103,7 @@ ldoe-companion/
 
 | # | Paso | Entregable | Verificación | Estado | Fecha | Notas |
 |---|------|-----------|--------------|--------|-------|-------|
-| 5.1 | Ledger de aprendizajes | `docs/LEARNINGS.md`: recetas wiki vs. verificadas in-game, cambios por versión del juego (Kefir cambia recetas) | Cada corrección de datos referencia su captura/fuente | ⬜ | | |
+| 5.1 | Ledger de aprendizajes | `docs/LEARNINGS.md`: recetas wiki vs. verificadas in-game, cambios por versión del juego (Kefir cambia recetas) | Cada corrección de datos referencia su captura/fuente | ✅ | 2026-07-02 | Creado en F3.2; completado con cambios de versión (beta 1.30.1, transmisión ATV) y huecos pendientes. La única corrección (pantalones) referencia su captura |
 | 5.2 | Checklist agent-native | Auditoría contra los *success criteria* del artículo (parity, granularity, composability, CRUD completo por entidad) | Checklist en docs/ con todo ✓ o justificación | ⬜ | | |
 | 5.3 | Métrica de éxito final (the ultimate test) | Pedir al agente un outcome NO diseñado (ej. "¿cuántas vueltas a Bunker Alfa me faltan para el ATV?") | El agente lo resuelve componiendo primitivos sin código nuevo | ⬜ | | |
 

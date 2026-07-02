@@ -15,6 +15,20 @@ Formato de entrada:
 - Ficheros tocados: ...
 ```
 
+## Cambios de versión conocidos (contexto, no correcciones nuestras)
+
+- **Beta 1.30.1** — Kefir rediseñó el equipo de piel: pasó a usar *Piel curtida +
+  Tela de lana* (fuente: `docs/investigacion.md` §7). Es el precedente que motiva
+  la regla captura > wiki: las guías anteriores a ese parche quedaron obsoletas.
+- **v1.49.5 (actual)** — guías antiguas dicen que la Transmisión de ATV «no existe»;
+  desactualizado, hoy dropea (Gasolinera / Puerto / Commune Trials).
+
+## Pendientes de verificación in-game (huecos conocidos, no correcciones)
+
+- Gorro y chaqueta de piel: sin receta en `recipes.json` (hojas provisionales).
+- Trozo de tela y Tela gruesa: cantidades `por verificar in-game` (notas en recipes).
+- 7 materiales con fuente `por investigar` en `sources.json` (prioridad 99).
+
 ---
 
 ## 2026-07-02 — Pantalones de piel reforzados (v1.49.5)
