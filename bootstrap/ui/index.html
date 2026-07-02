@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planos de Progresión · Last Day on Earth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700&family=Barlow:wght@400;600&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#23271d;
+    --panel:#2c3125;
+    --panel-2:#343a2c;
+    --line:#454c3a;
+    --blueprint:#24406b;
+    --blueprint-2:#1d3557;
+    --teal:#3ec9a7;
+    --teal-dim:#2a8f77;
+    --red:#ff6a5e;
+    --green:#9ad34f;
+    --ink:#e9e6da;
+    --muted:#a2a890;
+    --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Barlow',system-ui,sans-serif;
+    font-size:15px;
+    line-height:1.45;
+    min-height:100vh;
+  }
+  .wrap{max-width:600px;margin:0 auto;padding:16px 14px 60px}
+
+  /* ---------- Cabecera ---------- */
+  header{margin-bottom:14px}
+  .kicker{
+    font-family:var(--mono);font-size:10px;letter-spacing:.22em;
+    color:var(--teal);text-transform:uppercase;
+  }
+  h1{
+    font-family:'Saira Condensed',sans-serif;
+    font-size:30px;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;line-height:1.05;margin-top:2px;
+  }
+  .sub{color:var(--muted);font-size:13px;margin-top:4px}
+
+  /* ---------- Selector de objetivos ---------- */
+  .chips{
+    display:flex;gap:8px;overflow-x:auto;padding:10px 2px 12px;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+  }
+  .chips::-webkit-scrollbar{display:none}
+  .chip{
+    flex:0 0 auto;border:1px solid var(--line);background:var(--panel);
+    color:var(--ink);border-radius:6px;padding:8px 12px;cursor:pointer;
+    font-family:'Saira Condensed',sans-serif;font-size:15px;font-weight:600;
+    letter-spacing:.05em;text-transform:uppercase;
+    display:flex;align-items:center;gap:8px;
+  }
+  .chip .pct{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .chip.on{background:var(--teal-dim);border-color:var(--teal);color:#fff}
+  .chip.on .pct{color:#dffef4}
+  .chip:focus-visible,button:focus-visible,input:focus-visible{
+    outline:2px solid var(--teal);outline-offset:2px;
+  }
+
+  /* ---------- Tarjeta plano ---------- */
+  .plano{
+    position:relative;border-radius:8px;overflow:hidden;
+    background:
+      repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 22px),
+      repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 22px),
+      linear-gradient(160deg,var(--blueprint),var(--blueprint-2));
+    border:1px solid #3a5d92;
+    padding:16px 16px 14px;margin-bottom:14px;
+  }
+  .plano .tag{
+    font-family:var(--mono);font-size:10px;letter-spacing:.18em;
+    color:#9fc3ef;text-transform:uppercase;
+  }
+  .plano h2{
+    font-family:'Saira Condensed',sans-serif;font-size:24px;font-weight:700;
+    text-transform:uppercase;letter-spacing:.04em;color:#fff;margin:2px 0 4px;
+  }
+  .plano .desc{font-size:13px;color:#c9d9ef}
+  .barra{
+    margin-top:12px;height:16px;border:1px solid #4a6ea6;border-radius:4px;
+    background:rgba(0,0,0,.35);position:relative;overflow:hidden;
+  }
+  .barra .fill{
+    height:100%;width:0%;background:linear-gradient(90deg,var(--teal-dim),var(--teal));
+    transition:width .35s ease;
+  }
+  @media (prefers-reduced-motion:reduce){.barra .fill{transition:none}}
+  .barra .num{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:10px;color:#fff;letter-spacing:.08em;
+  }
+  .plano .reset{
+    margin-top:10px;background:none;border:1px solid #4a6ea6;color:#9fc3ef;
+    border-radius:4px;padding:5px 10px;font-family:var(--mono);font-size:10px;
+    letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
+  }
+
+  /* ---------- Materiales ---------- */
+  .grupo{margin-bottom:16px}
+  .grupo h3{
+    font-family:'Saira Condensed',sans-serif;font-size:16px;font-weight:600;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    border-bottom:1px solid var(--line);padding-bottom:5px;margin-bottom:8px;
+  }
+  .mat{
+    display:flex;align-items:center;gap:10px;background:var(--panel);
+    border:1px solid var(--line);border-radius:6px;padding:9px 10px;margin-bottom:7px;
+  }
+  .mat.done{border-color:var(--green);background:#2e3527}
+  .mat .info{flex:1;min-width:0}
+  .mat .nom{font-weight:600;font-size:14px}
+  .mat.done .nom{color:var(--green)}
+  .mat .src{font-size:11.5px;color:var(--muted);margin-top:1px}
+  .stepper{display:flex;align-items:center;gap:6px;flex:0 0 auto}
+  .stepper button{
+    width:34px;height:34px;border-radius:6px;border:1px solid var(--line);
+    background:var(--panel-2);color:var(--ink);font-size:17px;font-weight:600;
+    cursor:pointer;line-height:1;
+  }
+  .stepper button:active{background:var(--teal-dim)}
+  .cnt{
+    font-family:var(--mono);font-size:13px;min-width:58px;text-align:center;
+    color:var(--red);
+  }
+  .cnt.ok{color:var(--green)}
+  .okbtn{
+    width:34px;height:34px;border-radius:6px;border:1px solid var(--line);
+    background:var(--panel-2);color:var(--teal);font-size:15px;cursor:pointer;
+  }
+
+  /* ---------- Ruta de farmeo ---------- */
+  .ruta{
+    background:var(--panel);border:1px solid var(--line);border-radius:8px;
+    padding:14px;margin:18px 0;
+  }
+  .ruta h3{
+    font-family:'Saira Condensed',sans-serif;font-size:18px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;
+  }
+  .zona{margin-bottom:10px}
+  .zona .zn{
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink);
+    border-left:3px solid var(--teal);padding-left:8px;margin-bottom:4px;
+  }
+  .zona ul{list-style:none;padding-left:11px}
+  .zona li{font-size:13px;color:var(--muted);padding:1.5px 0}
+  .zona li b{color:var(--red);font-family:var(--mono);font-weight:600;font-size:12px}
+  .listo{color:var(--green);font-weight:600;font-size:14px}
+
+  /* ---------- Personalizado ---------- */
+  .addrow{display:flex;gap:6px;margin-top:10px}
+  .addrow input{
+    background:var(--panel-2);border:1px solid var(--line);border-radius:6px;
+    color:var(--ink);padding:8px;font-family:'Barlow',sans-serif;font-size:14px;
+  }
+  .addrow input.nm{flex:1;min-width:0}
+  .addrow input.qt{width:64px;text-align:center;font-family:var(--mono);font-size:13px}
+  .addrow button{
+    background:var(--teal-dim);border:1px solid var(--teal);color:#fff;
+    border-radius:6px;padding:0 14px;font-weight:600;cursor:pointer;font-size:14px;
+  }
+  .del{
+    width:34px;height:34px;border-radius:6px;border:1px solid var(--line);
+    background:none;color:var(--red);cursor:pointer;font-size:14px;
+  }
+
+  /* ---------- Chuleta ---------- */
+  details.chuleta{
+    background:var(--panel);border:1px solid var(--line);border-radius:8px;
+    padding:12px 14px;margin-top:6px;
+  }
+  details.chuleta summary{
+    cursor:pointer;font-family:'Saira Condensed',sans-serif;font-size:16px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  }
+  .cadena{
+    font-family:var(--mono);font-size:11px;line-height:1.9;color:var(--ink);
+    margin-top:10px;overflow-x:auto;white-space:nowrap;
+  }
+  .cadena b{color:var(--teal);font-weight:600}
+  .cadena .fl{color:var(--muted)}
+
+  .nota{font-size:11.5px;color:var(--muted);margin-top:14px}
+  .savemsg{
+    position:fixed;bottom:12px;left:50%;transform:translateX(-50%);
+    background:var(--panel-2);border:1px solid var(--teal);color:var(--teal);
+    font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+    padding:5px 12px;border-radius:20px;opacity:0;pointer-events:none;
+    transition:opacity .3s;
+  }
+  .savemsg.show{opacity:1}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">Last Day on Earth · Seguimiento de farmeo</div>
+    <h1>Planos de Progresión</h1>
+    <div class="sub">Elige un objetivo, marca lo que ya tienes y la ruta de farmeo te dirá dónde ir a por lo que falta.</div>
+  </header>
+
+  <nav class="chips" id="chips" aria-label="Objetivos"></nav>
+
+  <main id="main"></main>
+
+  <details class="chuleta">
+    <summary>Chuleta de refinado (cadenas base)</summary>
+    <div class="cadena">
+Tronco pino <span class="fl">→</span> <b>Tablón</b> (Carpintería) <span class="fl">·</span> Tronco <span class="fl">→</span> <b>Carbón</b> (Fundición)<br>
+Caliza <span class="fl">→</span> <b>Ladrillo</b> (Mesa del cantero)<br>
+Mineral hierro/Chatarra <span class="fl">→</span> Lingote hierro <span class="fl">→</span> <b>Placa hierro</b> <span class="fl">→</span> Clavos<br>
+Bauxita/Cable alum. <span class="fl">→</span> Lingote alum. <span class="fl">→</span> Placa alum. <span class="fl">→</span> <b>Pernos</b><br>
+Ling. hierro + alum. + cobre + 2 Carbón <span class="fl">→</span> <b>Lingote acero</b> <span class="fl">→</span> Placa acero<br>
+Fibra <span class="fl">→</span> Trozo tela <span class="fl">→</span> <b>Tela gruesa</b> <span class="fl">·</span> 2 Lana <span class="fl">→</span> <b>Tela de lana</b><br>
+Cuero crudo <span class="fl">→</span> <b>Cuero</b> (Curtidor) <span class="fl">·</span> Piel <span class="fl">→</span> <b>Piel curtida</b> (Curtidor)
+    </div>
+  </details>
+
+  <p class="nota">El progreso se guarda automáticamente en este artefacto. Las cantidades vienen de la wiki y de tu captura; verifica en tu partida, Kefir las cambia a veces.</p>
+</div>
+<div class="savemsg" id="savemsg">GUARDADO</div>
+
+<script>
+/* ================= DATOS ================= */
+const OBJETIVOS = [
+  {
+    id:'chopper', nombre:'Chopper', tag:'Nivel 6 · Primer vehículo',
+    desc:'Abre los viajes rápidos y el transporte de carga. Las piezas raras salen de Bunker Alfa: límpialo en cada reset (48 h).',
+    grupos:[
+      {t:'Plano', mats:[
+        {k:'ch_tab', n:'Tablón de pino', need:10, src:'Tronco de pino → Carpintería', zona:'Zonas de pino'},
+        {k:'ch_lin', n:'Lingote de hierro', need:5, src:'Mineral (Limestone Cliffs) → Fundición', zona:'Limestone Cliffs'},
+        {k:'ch_per', n:'Pernos', need:5, src:'Placa de aluminio → 2 pernos (Banco de trabajo)', zona:'Base · Banco de trabajo'},
+      ]},
+      {t:'Ensamblaje', mats:[
+        {k:'ch_mot', n:'Piezas de motor', need:20, src:'Cajas de cupones de Alfa · Bunker Bravo · bases NPC · airdrops', zona:'Bunker Alfa'},
+        {k:'ch_cab', n:'Cableado', need:10, src:'Cofres de zonas amarillas y bunkers', zona:'Zonas amarillas'},
+        {k:'ch_rue', n:'Ruedas de chopper', need:2, src:'Cajas de cupones (amarillas/rojas)', zona:'Bunker Alfa'},
+        {k:'ch_pe2', n:'Pernos', need:30, src:'Aluminio de Alfa → placas → pernos', zona:'Base · Banco de trabajo'},
+        {k:'ch_rod', n:'Rodamientos', need:10, src:'Cofres, gasolinera, motel', zona:'Zonas amarillas'},
+        {k:'ch_gom', n:'Piezas de goma', need:20, src:'Cofres y coches', zona:'Zonas amarillas'},
+        {k:'ch_cha', n:'Chatarra', need:30, src:'Coches y cofres, sobra farmeando', zona:'Cualquier zona'},
+        {k:'ch_hor', n:'Horquilla', need:1, src:'Cajas de cupones de Alfa', zona:'Bunker Alfa'},
+        {k:'ch_dep', n:'Depósito de gasolina', need:1, src:'Piso 1 de Bunker Alfa (raro)', zona:'Bunker Alfa'},
+        {k:'ch_moc', n:'Mochila básica', need:4, src:'Craftear o lootear', zona:'Base · Crafteo'},
+      ]},
+    ]
+  },
+  {
+    id:'alfa', nombre:'Bunker Alfa', tag:'Preparación de asalto',
+    desc:'El motor económico del juego: piezas de motor, aluminio, cupones y equipo. Se resetea cada 48 h; el código sale en tu CB Radio.',
+    grupos:[
+      {t:'Acceso', mats:[
+        {k:'al_cac', n:'Carta CAC A', need:1, src:'Zombis en zonas verde/amarilla · convoy destruido · airdrop', zona:'Zonas verdes/amarillas'},
+        {k:'al_cb', n:'CB Radio construida', need:1, src:'Necesaria para ver el código diario', zona:'Base · Construcción'},
+      ]},
+      {t:'Equipo recomendado por vuelta', mats:[
+        {k:'al_arm', n:'Armas de fuego', need:2, src:'Craftear o loot previo', zona:'Base · Crafteo'},
+        {k:'al_med', n:'Botiquines/vendas', need:5, src:'Mesa médica', zona:'Base · Mesa médica'},
+        {k:'al_com', n:'Comida + agua', need:5, src:'Huerto, secadero, recolector de lluvia', zona:'Base · Huerto'},
+      ]},
+    ]
+  },
+  {
+    id:'frio', nombre:'Set de piel', tag:'Nivel 15+ · Zona de frío',
+    desc:'Repara la Torre Norte (Generador Eléctrico) para abrir el norte. Con el set de piel básico ya puedes farmear el frío sin congelarte.',
+    grupos:[
+      {t:'Requisito de acceso', mats:[
+        {k:'fr_gen', n:'Generador Eléctrico', need:1, src:'Craftear y llevar a la Torre de Vigilancia Norte', zona:'Base · Crafteo'},
+      ]},
+      {t:'Pantalones de piel', mats:[
+        {k:'fr_pc1', n:'Piel curtida', need:6, src:'Piel de zorros/ciervos/lobos → Curtidor', zona:'Zona de frío · animales'},
+        {k:'fr_cu1', n:'Cuero', need:3, src:'Cuero crudo (lobos, ciervos) → Curtidor', zona:'Cualquier zona'},
+        {k:'fr_tg1', n:'Tela gruesa', need:6, src:'Fibra → tela → tela gruesa (Costura)', zona:'Base · Costura'},
+        {k:'fr_ph1', n:'Placa de hierro', need:2, src:'Lingote de hierro → Banco de trabajo', zona:'Base · Banco de trabajo'},
+        {k:'fr_ad1', n:'Adhesivo', need:2, src:'Loot en cofres y bunkers', zona:'Zonas amarillas'},
+      ]},
+      {t:'Botas de piel', mats:[
+        {k:'fr_pc2', n:'Piel curtida', need:4, src:'Piel → Curtidor', zona:'Zona de frío · animales'},
+        {k:'fr_cu2', n:'Cuero', need:2, src:'Cuero crudo → Curtidor', zona:'Cualquier zona'},
+        {k:'fr_tg2', n:'Tela gruesa', need:3, src:'Fibra → Costura', zona:'Base · Costura'},
+        {k:'fr_ph2', n:'Placa de hierro', need:1, src:'Lingote → Banco de trabajo', zona:'Base · Banco de trabajo'},
+        {k:'fr_ad2', n:'Adhesivo', need:1, src:'Loot en cofres', zona:'Zonas amarillas'},
+      ]},
+    ]
+  },
+  {
+    id:'reforzados', nombre:'Pant. reforzados', tag:'Misión Protección contra el frío',
+    desc:'Los de tu captura: protegen del frío extremo mucho tiempo. Cantidades tomadas de tu pantalla del juego.',
+    grupos:[
+      {t:'Receta (tu captura)', mats:[
+        {k:'rf_pan', n:'Pantalones de piel', need:1, src:'Craftear primero el set básico (Costura)', zona:'Base · Costura'},
+        {k:'rf_pie', n:'Piel curtida', need:12, src:'Piel de animales del norte → Curtidor', zona:'Zona de frío · animales'},
+        {k:'rf_lan', n:'Tela de lana', need:9, src:'2 trozos de lana → 1 tela (Costura)', zona:'Zona de frío · animales'},
+        {k:'rf_cue', n:'Cuero', need:2, src:'Cuero crudo → Curtidor', zona:'Cualquier zona'},
+        {k:'rf_phi', n:'Placa de hierro', need:2, src:'Lingote de hierro → Banco de trabajo', zona:'Base · Banco de trabajo'},
+        {k:'rf_pac', n:'Placa de acero', need:5, src:'Hierro+aluminio+cobre+carbón → acero (Fund. refinada) → Banco', zona:'Frosty Backwoods (cobre)'},
+      ]},
+    ]
+  },
+  {
+    id:'atv', nombre:'ATV', tag:'Nivel 18 · Zonas de roble',
+    desc:'Abre las zonas de roble y el pantano. Casi todo lo común cae solo; el cuello de botella es la Transmisión.',
+    grupos:[
+      {t:'Ensamblaje', mats:[
+        {k:'at_per', n:'Pernos', need:320, src:'Aluminio → placas → pernos (Banco)', zona:'Base · Banco de trabajo'},
+        {k:'at_rod', n:'Rodamientos', need:100, src:'Cofres de zonas amarillas y Alfa', zona:'Zonas amarillas'},
+        {k:'at_tra', n:'Transmisión ATV', need:1, src:'Gasolinera (jackpot 3 tapas) · Puerto · Transport Hub', zona:'Gasolinera / Puerto'},
+        {k:'at_dep', n:'Depósito ATV', need:1, src:'Cajas de cupones de Alfa / eventos', zona:'Bunker Alfa'},
+        {k:'at_tel', n:'Tela gruesa', need:250, src:'Fibra → Costura', zona:'Base · Costura'},
+        {k:'at_cha', n:'Chatarra', need:500, src:'Coches y cofres en cualquier zona', zona:'Cualquier zona'},
+        {k:'at_gom', n:'Piezas de goma', need:150, src:'Cofres y coches', zona:'Zonas amarillas'},
+        {k:'at_rue', n:'Ruedas ATV', need:16, src:'Cajas de cupones de Alfa / eventos', zona:'Bunker Alfa'},
+        {k:'at_cab', n:'Cableado', need:120, src:'Cofres de zonas amarillas y bunkers', zona:'Zonas amarillas'},
+        {k:'at_mot', n:'Piezas de motor', need:200, src:'Bunker Alfa en cada reset', zona:'Bunker Alfa'},
+      ]},
+    ]
+  },
+  {
+    id:'lancha', nombre:'Motor lancha', tag:'Nivel 64 · Isla y titanio',
+    desc:'El plano de la lancha se consigue visitando el Puerto. El motor da acceso a la región de la isla.',
+    grupos:[
+      {t:'Motor de lancha', mats:[
+        {k:'la_mot', n:'Piezas de motor', need:10, src:'Bunker Alfa · airdrops', zona:'Bunker Alfa'},
+        {k:'la_hel', n:'Hélices', need:3, src:'Alcantarillas del Puerto · reputación Genesis', zona:'Puerto'},
+        {k:'la_pla', n:'Plástico', need:20, src:'Reciclar cartas CAC, latas, relojes', zona:'Base · Reciclador'},
+        {k:'la_lla', n:'Llave inglesa', need:10, src:'Loot en zonas y bases NPC (no reciclar estas)', zona:'Zonas amarillas'},
+        {k:'la_fil', n:'Filtro de aire', need:10, src:'Gasolinera y coches', zona:'Gasolinera / Puerto'},
+        {k:'la_gom', n:'Piezas de goma', need:20, src:'Cofres y coches', zona:'Zonas amarillas'},
+      ]},
+    ]
+  },
+  {
+    id:'muro', nombre:'Muro nivel 3', tag:'Por cada muro',
+    desc:'Cantidades por 1 muro. La horda solo rompe nivel 1; el nivel 3 es indestructible para ella. Muebles (garaje, armario, estufa) hacen de muro de metal más barato.',
+    grupos:[
+      {t:'Nivel 1 → 2 (por muro)', mats:[
+        {k:'mu_cal', n:'Piedra caliza', need:10, src:'Limestone Ridge / Cliffs', zona:'Limestone Cliffs'},
+        {k:'mu_ta1', n:'Tablón de pino', need:20, src:'Tronco → Carpintería', zona:'Zonas de pino'},
+      ]},
+      {t:'Nivel 2 → 3 (por muro)', mats:[
+        {k:'mu_lad', n:'Ladrillo de piedra', need:20, src:'Caliza → Mesa del cantero', zona:'Limestone Cliffs'},
+        {k:'mu_ta2', n:'Tablón de pino', need:10, src:'Tronco → Carpintería', zona:'Zonas de pino'},
+      ]},
+    ]
+  },
+  {
+    id:'custom', nombre:'Personalizado', tag:'Tu propia misión',
+    desc:'Añade los materiales de cualquier misión o receta que te pida el juego y sigue el progreso igual que en el resto de planos.',
+    grupos:[], custom:true
+  },
+];
+
+/* ================= ESTADO ================= */
+let state = { have:{}, custom:[] };
+let actual = 'chopper';
+let saveTimer = null;
+
+async function cargar(){
+  try{
+    const r = await window.storage.get('ldoe-tracker-v1');
+    if(r && r.value){ state = JSON.parse(r.value); }
+  }catch(e){ /* primera vez: no existe la clave */ }
+  render();
+}
+function guardar(){
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(async ()=>{
+    try{
+      await window.storage.set('ldoe-tracker-v1', JSON.stringify(state));
+      const m = document.getElementById('savemsg');
+      m.classList.add('show'); setTimeout(()=>m.classList.remove('show'), 900);
+    }catch(e){ console.error('No se pudo guardar', e); }
+  }, 400);
+}
+
+/* ================= HELPERS ================= */
+function gruposDe(obj){
+  if(obj.custom){
+    return state.custom.length
+      ? [{t:'Materiales de tu misión', mats:state.custom.map((m,i)=>({k:'cu_'+i, n:m.n, need:m.need, src:m.src||'', zona:m.src||'Donde tú digas', custom:true, idx:i}))}]
+      : [];
+  }
+  return obj.grupos;
+}
+function haveDe(objId,k){ return (state.have[objId]||{})[k]||0; }
+function setHave(objId,k,v,max){
+  v = Math.max(0, Math.min(max, v));
+  if(!state.have[objId]) state.have[objId]={};
+  state.have[objId][k]=v;
+  guardar(); render();
+}
+function progreso(obj){
+  let need=0, have=0;
+  gruposDe(obj).forEach(g=>g.mats.forEach(m=>{
+    need+=m.need; have+=Math.min(m.need, haveDe(obj.id,m.k));
+  }));
+  return need? Math.round(have/need*100) : 0;
+}
+function esc(s){ return String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+/* ================= RENDER ================= */
+function render(){
+  /* chips */
+  const chips = document.getElementById('chips');
+  chips.innerHTML='';
+  OBJETIVOS.forEach(o=>{
+    const b=document.createElement('button');
+    b.className='chip'+(o.id===actual?' on':'');
+    b.innerHTML = esc(o.nombre)+' <span class="pct">'+progreso(o)+'%</span>';
+    b.onclick=()=>{ actual=o.id; render(); };
+    chips.appendChild(b);
+  });
+
+  const obj = OBJETIVOS.find(o=>o.id===actual);
+  const pct = progreso(obj);
+  const main = document.getElementById('main');
+  let html = '';
+
+  /* tarjeta plano */
+  html += '<section class="plano">'
+    + '<div class="tag">'+esc(obj.tag)+'</div>'
+    + '<h2>'+esc(obj.nombre)+'</h2>'
+    + '<div class="desc">'+esc(obj.desc)+'</div>'
+    + '<div class="barra" role="progressbar" aria-valuenow="'+pct+'" aria-valuemin="0" aria-valuemax="100">'
+    + '<div class="fill" style="width:'+pct+'%"></div><div class="num">'+pct+'% COMPLETADO</div></div>'
+    + '<button class="reset" onclick="reiniciar()">Reiniciar objetivo</button>'
+    + '</section>';
+
+  /* materiales */
+  gruposDe(obj).forEach(g=>{
+    html += '<div class="grupo"><h3>'+esc(g.t)+'</h3>';
+    g.mats.forEach(m=>{
+      const h = haveDe(obj.id, m.k);
+      const ok = h>=m.need;
+      html += '<div class="mat'+(ok?' done':'')+'">'
+        + '<div class="info"><div class="nom">'+esc(m.n)+'</div>'
+        + (m.src?'<div class="src">'+esc(m.src)+'</div>':'')
+        + '</div>'
+        + '<div class="stepper">'
+        + '<button aria-label="Quitar uno" onclick="mod(\''+m.k+'\',-1,'+m.need+')">−</button>'
+        + '<span class="cnt'+(ok?' ok':'')+'">'+h+'/'+m.need+'</span>'
+        + '<button aria-label="Añadir uno" onclick="mod(\''+m.k+'\',1,'+m.need+')">+</button>'
+        + '<button class="okbtn" aria-label="Marcar completo" onclick="completo(\''+m.k+'\','+m.need+')">✓</button>'
+        + (m.custom?'<button class="del" aria-label="Eliminar" onclick="borrarCustom('+m.idx+')">✕</button>':'')
+        + '</div></div>';
+    });
+    html += '</div>';
+  });
+
+  /* añadir material personalizado */
+  if(obj.custom){
+    html += '<div class="grupo"><h3>Añadir material</h3>'
+      + '<div class="addrow">'
+      + '<input class="nm" id="cnm" placeholder="Material (ej. Placa de acero)">'
+      + '<input class="qt" id="cqt" type="number" min="1" placeholder="Cant.">'
+      + '</div>'
+      + '<div class="addrow">'
+      + '<input class="nm" id="csr" placeholder="Dónde se farmea (opcional)">'
+      + '<button onclick="addCustom()">Añadir</button>'
+      + '</div></div>';
+  }
+
+  /* ruta de farmeo */
+  const zonas = {};
+  gruposDe(obj).forEach(g=>g.mats.forEach(m=>{
+    const falta = m.need - haveDe(obj.id,m.k);
+    if(falta>0){
+      if(!zonas[m.zona]) zonas[m.zona]=[];
+      zonas[m.zona].push({n:m.n, falta});
+    }
+  }));
+  html += '<section class="ruta"><h3>Ruta de farmeo — qué te falta y dónde</h3>';
+  const keys = Object.keys(zonas).sort((a,b)=>zonas[b].length-zonas[a].length);
+  if(!keys.length){
+    html += '<div class="listo">✓ Todo listo. ¡A craftear!</div>';
+  }else{
+    keys.forEach(z=>{
+      html += '<div class="zona"><div class="zn">'+esc(z)+'</div><ul>';
+      zonas[z].forEach(it=>{ html += '<li><b>×'+it.falta+'</b> '+esc(it.n)+'</li>'; });
+      html += '</ul></div>';
+    });
+  }
+  html += '</section>';
+
+  main.innerHTML = html;
+}
+
+/* ================= ACCIONES ================= */
+function mod(k,d,max){ setHave(actual,k, haveDe(actual,k)+d, max); }
+function completo(k,max){ setHave(actual,k,max,max); }
+function reiniciar(){
+  state.have[actual]={};
+  guardar(); render();
+}
+function addCustom(){
+  const n = document.getElementById('cnm').value.trim();
+  const q = parseInt(document.getElementById('cqt').value,10);
+  const s = document.getElementById('csr').value.trim();
+  if(!n || !q || q<1) return;
+  state.custom.push({n, need:q, src:s});
+  guardar(); render();
+}
+function borrarCustom(i){
+  state.custom.splice(i,1);
+  if(state.have.custom) state.have.custom={};
+  guardar(); render();
+}
+
+cargar();
+</script>
+</body>
+</html>
