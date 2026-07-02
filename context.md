@@ -24,8 +24,15 @@ dónde ir y cómo organizar su base, manteniendo `data/` como fuente de verdad.
 - No marcar pasos ✅ sin pasar su verificación. 1 paso = 1 commit + push.
 
 ## Estado actual
-- Fase 0 completada. Fase 1 casi completa: recipes (56 items), sources, objectives (7),
-  boxes y validate.mjs en verde.
+- Fases 0 y 2 completadas. Fase 1 casi completa: recipes (56 items), sources,
+  objectives (7), boxes y validate.mjs en verde.
+- Motor determinista operativo: `resolve-deps.mjs` (faltantes netos con descuento de
+  inventario en cascada, exporta resolver()) y `plan-route.mjs` (ruta por zonas,
+  salida markdown y JSON). 12 tests con `node --test` desde la raíz.
+- sources.json aún no trae energía por zona: plan-route ordena por nº de items y
+  soporta un campo opcional `energia` cuando se investigue.
 - F1.4 en 🔄: esquema de inventory.json listo, PENDIENTE que Alin aporte nivel,
   estaciones construidas e inventario (por captura o texto).
-- Siguiente paso tras cerrar F1.4: F2.1 (tools/resolve-deps.mjs).
+- Siguiente paso: F3.1 (SKILL.md del compañero) — o cerrar F1.4 si llegan los datos.
+- Ojo multi-sesión: el trabajo de F0–F2 vive en las ramas claude/* (main solo tiene
+  el commit inicial); PLAN.md y context.md son el punto de conflicto entre sesiones.

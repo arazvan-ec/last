@@ -119,6 +119,7 @@ ldoe-companion/
 | 2026-07-02 | F0.1 | 1 | Bootstrap reconciliado: ficheros a la raíz, estructura de carpetas y README |
 | 2026-07-02 | F0.2, F0.3 | 2 | SPEC escrita con métrica machine-checkable; plan operativo como log vivo. Fase 0 cerrada |
 | 2026-07-02 | F1.1–F1.5 | 5 | Capa de datos completa: recetas (56 items), fuentes, 7 objetivos, cajas y validador. F1.4 en 🔄: falta el inventario real del jugador |
+| 2026-07-02 | F2.1–F2.3 | 3 | Motor determinista completo: resolve-deps (descuento en cascada), plan-route (agrupado por zona, md+json) y 12 tests verdes. Fase 2 cerrada; F1.4 sigue esperando datos del jugador |
 
 ---
 
