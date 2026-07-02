@@ -15,7 +15,7 @@ dónde ir y cómo organizar su base, manteniendo `data/` como fuente de verdad.
 - Las cajas están etiquetadas con iconos (madera, herramientas, armas…). Contenido: se
   volcará incrementalmente cuando Alin pase capturas de cajas abiertas.
 - Con sus estaciones, el objetivo activo (pantalones reforzados) es 100% crafteable:
-  solo falta farmear (ver node tools/plan-route.mjs pantalones-piel-reforzados).
+  solo falta farmear (plan-route de la rama claude/repo-status-check-2neqs3 lo calcula).
 
 ## Qué existe
 - PLAN.md con 6 fases / 20 pasos — F0.1 completado.
@@ -32,5 +32,9 @@ dónde ir y cómo organizar su base, manteniendo `data/` como fuente de verdad.
 - No marcar pasos ✅ sin pasar su verificación. 1 paso = 1 commit + push.
 
 ## Estado actual
-- Fases 0, 1 y 2 completadas: datos + motor (resolve-deps, plan-route, validate, 7 tests verdes).
-- Siguiente paso: F3.1 (skills/ldoe-companion/SKILL.md).
+- Trabajo repartido en dos ramas (decisión de Alin, 2026-07-02):
+  · Esta rama (claude/extract-zip-to-repo-bof24h): SOLO F1.4 — estado del jugador.
+  · claude/repo-status-check-2neqs3: F2 (motor, mejor implementación) + F3 (skill+prompts).
+  · Pendiente al final: consolidar ambas (la otra como base + los datos de F1.4 de esta).
+- F1.4 en curso. Hecho: nivel 82, mochila, base y 13 estaciones (3 capturas).
+  Falta: contenido de las ~20-25 cajas etiquetadas y confirmar Reciclador/Cantero/Mesa médica.
