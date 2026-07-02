@@ -64,8 +64,8 @@ ldoe-companion/
 | 1.1 | Esquema del grafo de recetas | `data/recipes.json` — cada item: `id, nombre, estacion, ingredientes[{id, qty}], verificado(wiki/ingame)` | `validate.mjs` pasa; ciclo prohibido (grafo acíclico) | ✅ | 2026-07-02 | 56 items; validate.mjs comprueba también la receta canónica |
 | 1.2 | Esquema de fuentes de farmeo | `data/sources.json` — material → zonas/eventos/drops con prioridad | Todo ingrediente hoja de recipes.json tiene fuente | ✅ | 2026-07-02 | 32 hojas cubiertas; 7 marcadas «por investigar» |
 | 1.3 | Cargar datos de la investigación | Los 7 objetivos ya investigados (Chopper, Bunker Alfa, set de piel, pantalones reforzados, ATV, motor lancha, muros N3) + cadenas de refinado | resolve-deps sobre "pantalones reforzados" reproduce tu captura (1/12/9/2/2/5) | ✅ | 2026-07-02 | Datos cotejados con la captura vía validate.mjs; re-verificar con resolve-deps en F2.1 |
-| 1.4 | Estado del jugador | `data/inventory.json` + `context.md` (nivel, edificios, estaciones construidas) | El agente responde "¿qué tengo?" leyendo solo estos ficheros | ⬜ | | |
-| 1.5 | Organización de cajas | `data/boxes.json` — categorías, caja↔estación, contenido esperado | Cada material de recipes.json mapea a exactamente 1 categoría de caja | ⬜ | | |
+| 1.4 | Estado del jugador | `data/inventory.json` + `context.md` (nivel, edificios, estaciones construidas) | El agente responde "¿qué tengo?" leyendo solo estos ficheros | 🔄 | 2026-07-02 | Esquema creado y validado; faltan los datos reales del jugador (nivel, estaciones, inventario) |
+| 1.5 | Organización de cajas | `data/boxes.json` — categorías, caja↔estación, contenido esperado | Cada material de recipes.json mapea a exactamente 1 categoría de caja | ✅ | 2026-07-02 | 10 categorías; mapeo 1-a-1 comprobado por validate.mjs |
 
 ---
 
@@ -118,6 +118,7 @@ ldoe-companion/
 | — | — | — | Plan creado, pendiente de arrancar F0 |
 | 2026-07-02 | F0.1 | 1 | Bootstrap reconciliado: ficheros a la raíz, estructura de carpetas y README |
 | 2026-07-02 | F0.2, F0.3 | 2 | SPEC escrita con métrica machine-checkable; plan operativo como log vivo. Fase 0 cerrada |
+| 2026-07-02 | F1.1–F1.5 | 5 | Capa de datos completa: recetas (56 items), fuentes, 7 objetivos, cajas y validador. F1.4 en 🔄: falta el inventario real del jugador |
 
 ---
 

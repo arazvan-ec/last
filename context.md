@@ -24,5 +24,8 @@ dónde ir y cómo organizar su base, manteniendo `data/` como fuente de verdad.
 - No marcar pasos ✅ sin pasar su verificación. 1 paso = 1 commit + push.
 
 ## Estado actual
-- Fase 0 completada (F0.1–F0.3): estructura, SPEC y plan instalado como log vivo.
-- Siguiente paso: F1.1 (esquema del grafo de recetas en data/recipes.json + validate.mjs).
+- Fase 0 completada. Fase 1 casi completa: recipes (56 items), sources, objectives (7),
+  boxes y validate.mjs en verde.
+- F1.4 en 🔄: esquema de inventory.json listo, PENDIENTE que Alin aporte nivel,
+  estaciones construidas e inventario (por captura o texto).
+- Siguiente paso tras cerrar F1.4: F2.1 (tools/resolve-deps.mjs).
