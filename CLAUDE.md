@@ -43,7 +43,7 @@ docs/              SPEC.md · investigacion.md · LEARNINGS.md
 - Validar datos: `node tools/validate.mjs`
 - Resolver dependencias: `node tools/resolve-deps.mjs <objetivo-id>`
 - Ruta de farmeo: `node tools/plan-route.mjs <objetivo-id>`
-- Tests: `node --test tools/`
+- Tests: `node --test` (desde la raíz; descubre `tools/*.test.mjs`)
 
 ## Datos y dominio
 
