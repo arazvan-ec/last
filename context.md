@@ -10,16 +10,18 @@ dónde ir y cómo organizar su base, manteniendo `data/` como fuente de verdad.
 - Nivel, estaciones construidas e inventario: PENDIENTE de volcar en data/inventory.json (paso F1.4).
 
 ## Qué existe
-- PLAN.md con 6 fases / 20 pasos — ningún paso completado aún.
+- PLAN.md con 6 fases / 20 pasos — F0.1 completado.
+- Estructura del repo creada: data/ tools/ skills/ldoe-companion/ ui/ docs/ + README.
 - docs/investigacion.md con las cadenas de crafteo, fuentes y 7 objetivos precargados.
 - ui/index.html v1 (tracker por objetivo, versión de chat; en F4 pasará a leer data/).
 
 ## Actividad reciente
 - Bootstrap del proyecto creado desde el chat de claude.ai (investigación + plan + UI v1).
+- 2026-07-02: F0.1 — bootstrap reconciliado con el repo (ficheros a la raíz, estructura + README).
 
 ## Mis pautas
 - Ante conflicto de datos: captura del juego > wiki. Anotar correcciones en docs/LEARNINGS.md.
 - No marcar pasos ✅ sin pasar su verificación. 1 paso = 1 commit + push.
 
 ## Estado actual
-- Siguiente paso: F0.1 (reconciliar este bootstrap con el repo y primer commit).
+- Siguiente paso: F0.2 (escribir docs/SPEC.md con requisitos, entidades y métrica de éxito).
