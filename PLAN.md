@@ -84,7 +84,7 @@ ldoe-companion/
 | # | Paso | Entregable | Verificación | Estado | Fecha | Notas |
 |---|------|-----------|--------------|--------|-------|-------|
 | 3.1 | Skill del compañero | `skills/ldoe-companion/SKILL.md`: cómo leer/escribir data/, cuándo invocar tools/, cómo actualizar recetas desde capturas de pantalla | Test de paridad: toda acción de la UI es alcanzable por el agente editando data/ | ✅ | 2026-07-02 | Tabla de paridad cubre las 6 acciones de ui/index.html (selector, ±, ✓, reset, custom add/del) + regla: acción sin primitivo = bug de arquitectura |
-| 3.2 | Flujo captura → datos | Procedimiento en la skill: captura del juego → actualizar inventory.json / corregir recipes.json (`verificado: "ingame"`) | Con tu captura de pantalones reforzados, el agente corrige cantidades y lo anota en LEARNINGS.md | ⬜ | | |
+| 3.2 | Flujo captura → datos | Procedimiento en la skill: captura del juego → actualizar inventory.json / corregir recipes.json (`verificado: "ingame"`) | Con tu captura de pantalones reforzados, el agente corrige cantidades y lo anota en LEARNINGS.md | ✅ | 2026-07-02 | Procedimiento de 5 pasos en SKILL.md; LEARNINGS.md creado con la corrección de los pantalones (captura Alin) como entrada fundacional. Adelanta el entregable de F5.1 |
 | 3.3 | Prompts compuestos (features = prompts) | `skills/ldoe-companion/prompts/`: `planifica-sesion.md`, `que-reciclo.md`, `organiza-cajas.md` | Cada prompt produce un resultado útil usando solo primitivos + tools/ | ⬜ | | |
 
 ---

@@ -65,6 +65,26 @@ acción de la UI debe poder lograrse editando `data/` con primitivos:
 Si aparece una acción de UI sin equivalente en esta tabla, es un bug de
 arquitectura: falta un primitivo, no un tool-pasarela.
 
+## Flujo captura → datos
+
+Cuando Alin aporta una captura del juego (o dicta datos por texto):
+
+1. **Clasificar** qué muestra: pantalla de receta, inventario/cajas, o estado del
+   jugador (nivel, estaciones).
+2. **Receta** — comparar ingrediente a ingrediente con `recipes.json`:
+   - Si coincide y estaba `verificado: "wiki"` → subir a `"ingame"` y anotar en notas la fecha.
+   - Si difiere → **gana la captura**: corregir `ingredientes`, marcar `verificado: "ingame"`
+     y añadir entrada en `docs/LEARNINGS.md` (fecha, item, antes → después, fuente).
+   - Item que no existe en `recipes.json` → crear el nodo; si es hoja, darle fuente en
+     `sources.json` y categoría en `boxes.json` (invariantes de validate).
+3. **Inventario** — volcar cantidades en `inventory.json.items` (ids de recipes.json)
+   y poner `actualizado` a la fecha de la captura. Nivel/estaciones van en `jugador`.
+4. **Validar** — `node tools/validate.mjs` y `node --test`. Si la corrección toca la
+   receta canónica (pantalones reforzados), actualizar también `CANONICA` en
+   `validate.mjs`, el test y `docs/SPEC.md` §4 — es la métrica del proyecto, avisar a Alin.
+5. Nunca degradar `"ingame"` → `"wiki"`: una receta verificada solo cambia con otra captura
+   (nueva versión del juego). Ese cambio también va a LEARNINGS.md.
+
 ## Reglas de datos
 
 - Conflicto de datos: **captura del juego > wiki**. Kefir cambia recetas entre versiones.
