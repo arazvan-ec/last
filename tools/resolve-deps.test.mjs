@@ -11,7 +11,7 @@ const conInventario = (inv) => ({ ...datos, inventory: { items: inv } });
 test('los 7 objetivos resuelven y sus faltantes son hojas con qty > 0', () => {
   assert.equal(datos.objectives.objetivos.length, 7);
   for (const obj of datos.objectives.objetivos) {
-    const res = resolver(obj.id, datos);
+    const res = resolver(obj.id, conInventario({})); // inventario fijado: el real cambia con el juego
     assert.ok(res, `${obj.id} no resuelve`);
     assert.ok(Object.keys(res.faltantes_hoja).length > 0, `${obj.id} sin faltantes con inventario vacío`);
     for (const [id, qty] of Object.entries(res.faltantes_hoja)) {
@@ -22,7 +22,7 @@ test('los 7 objetivos resuelven y sus faltantes son hojas con qty > 0', () => {
 });
 
 test('receta canónica: totales brutos de pantalones-piel-reforzados', () => {
-  const res = resolver('pantalones-piel-reforzados', datos);
+  const res = resolver('pantalones-piel-reforzados', conInventario({}));
   assert.deepEqual(res.faltantes_hoja, {
     piel: 18, 'cuero-crudo': 5, fibra: 6, 'mineral-hierro': 9, adhesivo: 2,
     'trozo-lana': 18, bauxita: 25, 'mineral-cobre': 5, 'tronco-pino': 10,

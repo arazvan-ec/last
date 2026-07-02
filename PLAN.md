@@ -64,7 +64,7 @@ ldoe-companion/
 | 1.1 | Esquema del grafo de recetas | `data/recipes.json` — cada item: `id, nombre, estacion, ingredientes[{id, qty}], verificado(wiki/ingame)` | `validate.mjs` pasa; ciclo prohibido (grafo acíclico) | ✅ | 2026-07-02 | 56 items; validate.mjs comprueba también la receta canónica |
 | 1.2 | Esquema de fuentes de farmeo | `data/sources.json` — material → zonas/eventos/drops con prioridad | Todo ingrediente hoja de recipes.json tiene fuente | ✅ | 2026-07-02 | 32 hojas cubiertas; 7 marcadas «por investigar» |
 | 1.3 | Cargar datos de la investigación | Los 7 objetivos ya investigados (Chopper, Bunker Alfa, set de piel, pantalones reforzados, ATV, motor lancha, muros N3) + cadenas de refinado | resolve-deps sobre "pantalones reforzados" reproduce tu captura (1/12/9/2/2/5) | ✅ | 2026-07-02 | Datos cotejados con la captura vía validate.mjs; re-verificar con resolve-deps en F2.1 |
-| 1.4 | Estado del jugador | `data/inventory.json` + `context.md` (nivel, edificios, estaciones construidas) | El agente responde "¿qué tengo?" leyendo solo estos ficheros | 🔄 | 2026-07-02 | Esquema creado y validado; faltan los datos reales del jugador (nivel, estaciones, inventario) |
+| 1.4 | Estado del jugador | `data/inventory.json` + `context.md` (nivel, edificios, estaciones construidas) | El agente responde "¿qué tengo?" leyendo solo estos ficheros | ✅ | 2026-07-02 | Nivel 82, mochila y 13 estaciones volcados (3 capturas). Cajas: pendientes por decisión de Alin, se volcarán incrementalmente con futuras capturas |
 | 1.5 | Organización de cajas | `data/boxes.json` — categorías, caja↔estación, contenido esperado | Cada material de recipes.json mapea a exactamente 1 categoría de caja | ✅ | 2026-07-02 | 10 categorías; mapeo 1-a-1 comprobado por validate.mjs |
 
 ---
@@ -123,6 +123,9 @@ ldoe-companion/
 | 2026-07-02 | F3.1–F3.3 | 3 | Capa agente completa: SKILL.md (paridad UI↔data), flujo captura→datos + LEARNINGS.md fundacional, 3 prompts compuestos. Fase 3 cerrada; F1.4 en curso en otra sesión |
 | 2026-07-02 | F4.1–F4.3 | 3 | UI como vista del estado: engine.mjs puro compartido CLI↔navegador, árbol navegable con cascada, steppers + export/import. Verificado end-to-end con Chromium headless. Fase 4 cerrada |
 | 2026-07-02 | F5.1–F5.3 | 3 | Cierre: ledger completado, checklist agent-native (todo ✓ o justificado) y ultimate test superado (vueltas a Alfa para el ATV por composición). Fase 5 cerrada — solo queda F1.4 (otra sesión) |
+| 2026-07-02 | F1.4 | 3 | (rama extract-zip) F1.4 con 3 capturas: nivel 82, inventario de mochila, base y 13 estaciones; Chopper ya construido. Esta rama se dedica solo a F1.4; F2–F3 viven en claude/repo-status-check-2neqs3 |
+| 2026-07-02 | F1.4 ✅ | 1 | (rama extract-zip) F1.4 cerrado por decisión de Alin: cajas incrementales, sin bloquear. Fase 1 completa |
+| 2026-07-02 | merge | 1 | Ramas consolidadas: F1.4 (datos reales) integrado sobre F2–F5. Plan de 20 pasos COMPLETO |
 
 ---
 

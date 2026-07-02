@@ -5,7 +5,9 @@ import { fileURLToPath } from 'node:url';
 import { cargarDatos, resolver } from './resolve-deps.mjs';
 import { planificarRuta } from './plan-route.mjs';
 
-const datos = cargarDatos();
+// Inventario fijado a vacío: el real (data/inventory.json) cambia con el juego
+// y los tests deben ser deterministas.
+const datos = { ...cargarDatos(), inventory: { items: {} } };
 const sources = JSON.parse(
   readFileSync(fileURLToPath(new URL('../data/sources.json', import.meta.url)), 'utf8')
 );
