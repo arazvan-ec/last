@@ -75,5 +75,12 @@ Commit + push: el checkpoint no existe si no está en el repo.
 
 ## Salida de cada iteración
 
-Un plan de sesión (bloque 3) + el % de avance del motor + qué captura se espera
-en el checkpoint. Corto: cabe en una pantalla de móvil.
+Dos piezas:
+1. **Plan de sesión** (bloque 3) en texto + el % del motor + qué captura se espera
+   en el checkpoint. Corto: cabe en una pantalla de móvil.
+2. **Organigrama de la misión en HTML** (artifact): el desglose completo como
+   árbol jerárquico — misión → puertas y tareas → sub-objetivos con su % →
+   materiales con cantidad y zona. Las puertas no cumplidas bloquean visualmente
+   sus ramas (candado); lo cumplido se marca en verde. Los datos salen SIEMPRE
+   de `resolve-deps --json` + `sources.json`, nunca a ojo. Se regenera en la
+   misma página en cada checkpoint para ver el árbol encogerse.
