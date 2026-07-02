@@ -1,7 +1,7 @@
 {
   "descripcion": "Lo que el jugador tiene AHORA. items: id de recipes.json → cantidad. no_modelado: objetos vistos en capturas que no forman parte del grafo de crafteo. Se actualiza por capturas del juego o texto del usuario.",
   "actualizado": "2026-07-02",
-  "fuente": "Captura in-game: pantalla de personaje + inventario (bolsillos + mochila)",
+  "fuente": "Capturas in-game 2026-07-02: personaje + inventario; pantalla PLANOS (gorro reforzado) con stock de 6 materiales",
   "jugador": {
     "nombre": "Alin (in-game: Radec#4354)",
     "nivel": 82,
@@ -20,8 +20,14 @@
       "Garaje de piedra: Chopper + taller (pared de herramientas, mesa con tornillo de banco)",
       "Taquilla/armario metálico junto a la fundición refinada"
     ],
-    "estaciones_por_confirmar": ["Reciclador", "Mesa del cantero", "Mesa médica"],
-    "vehiculos": ["Chopper construido (visto aparcado en garaje de piedra, captura 2026-07-02)"],
+    "estaciones_por_confirmar": [
+      "Reciclador",
+      "Mesa del cantero",
+      "Mesa médica"
+    ],
+    "vehiculos": [
+      "Chopper construido (visto aparcado en garaje de piedra, captura 2026-07-02)"
+    ],
     "equipado": [
       "Hacha (durabilidad baja)",
       "Mochila",
@@ -38,7 +44,11 @@
     "pernos": 5,
     "chatarra": 39,
     "trozo-tela": 5,
-    "lingote-acero": 6
+    "lingote-acero": 6,
+    "piel-curtida": 11,
+    "tela-lana": 43,
+    "lingote-cobre": 2,
+    "placa-hierro": 19
   },
   "notas_identificacion": [
     "lingote-acero x6: identificado por color (ingote oscuro azulado, claramente más oscuro que los pernos plateados de la misma captura). Si una futura captura muestra que era lingote de hierro, corregir aquí y anotar en LEARNINGS.md.",
@@ -46,19 +56,52 @@
     "trozo-tela x5: cuadrado de tela deshilachada beige (icono del trozo de tela básico, no de la tela gruesa)."
   ],
   "no_modelado": {
-    "pistola-glock": { "qty": 1, "nota": "durabilidad baja" },
-    "pico": { "qty": 1 },
-    "vendas": { "qty": 3, "nota": "2 en bolsillos + 1 en ranura rápida" },
-    "guiso-cocinado": { "qty": 16 },
-    "setas": { "qty": 1 },
-    "te-de-bayas": { "qty": 6 },
-    "lata-de-comida": { "qty": 2 },
-    "botella-de-agua": { "qty": 22 },
-    "bayas": { "qty": 11 },
-    "semillas": { "qty": 2 },
-    "cuerda": { "qty": 37 },
-    "memoria-usb": { "qty": 2, "nota": "reciclables → circuito electrónico" },
-    "pack-medicinas-evento": { "qty": 1, "nota": "caduca (temporizador)" },
-    "racion-comida-evento": { "qty": 1, "nota": "caduca (temporizador)" }
+    "pistola-glock": {
+      "qty": 1,
+      "nota": "durabilidad baja"
+    },
+    "pico": {
+      "qty": 1
+    },
+    "vendas": {
+      "qty": 3,
+      "nota": "2 en bolsillos + 1 en ranura rápida"
+    },
+    "guiso-cocinado": {
+      "qty": 16
+    },
+    "setas": {
+      "qty": 1
+    },
+    "te-de-bayas": {
+      "qty": 6
+    },
+    "lata-de-comida": {
+      "qty": 2
+    },
+    "botella-de-agua": {
+      "qty": 22
+    },
+    "bayas": {
+      "qty": 11
+    },
+    "semillas": {
+      "qty": 2
+    },
+    "cuerda": {
+      "qty": 37
+    },
+    "memoria-usb": {
+      "qty": 2,
+      "nota": "reciclables → circuito electrónico"
+    },
+    "pack-medicinas-evento": {
+      "qty": 1,
+      "nota": "caduca (temporizador)"
+    },
+    "racion-comida-evento": {
+      "qty": 1,
+      "nota": "caduca (temporizador)"
+    }
   }
 }

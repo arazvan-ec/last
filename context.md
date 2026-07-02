@@ -18,6 +18,10 @@ dónde ir y cómo organizar su base, manteniendo `data/` como fuente de verdad.
   3. «Recursos para los páramos» — explorar camping Greenwood, zona de cuarentena y
      campo de entrenamiento helado (reputación; texto cortado en captura).
   Energía en captura: 198/200 (tope, regen desperdiciándose). Latas/cupones: 89.
+- **IMPORTANTE (captura 2ª del mapa)**: las zonas del evento están en el NORTE HELADO
+  (pins ❄ sobre bosque nevado) → las tareas de «Camino al barco» requieren ropa de
+  invierno, y Alin no tiene ninguna. La misión «Protección contra el frío» (pantalones/
+  gorro/chaqueta reforzados) ha pasado de objetivo de progresión a REQUISITO del evento.
 
 ## Qué sé del usuario
 - Juega en español; versión del juego ~1.49.5 (jul-2026). In-game: Radec#4354, **nivel 82**.
