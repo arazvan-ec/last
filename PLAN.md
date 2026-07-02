@@ -62,7 +62,7 @@ ldoe-companion/
 | # | Paso | Entregable | Verificación | Estado | Fecha | Notas |
 |---|------|-----------|--------------|--------|-------|-------|
 | 1.1 | Esquema del grafo de recetas | `data/recipes.json` — cada item: `id, nombre, estacion, ingredientes[{id, qty}], verificado(wiki/ingame)` | `validate.mjs` pasa; ciclo prohibido (grafo acíclico) | ✅ | 2026-07-02 | 56 items; validate.mjs comprueba también la receta canónica |
-| 1.2 | Esquema de fuentes de farmeo | `data/sources.json` — material → zonas/eventos/drops con prioridad | Todo ingrediente hoja de recipes.json tiene fuente | ⬜ | | |
+| 1.2 | Esquema de fuentes de farmeo | `data/sources.json` — material → zonas/eventos/drops con prioridad | Todo ingrediente hoja de recipes.json tiene fuente | ✅ | 2026-07-02 | 32 hojas cubiertas; 7 marcadas «por investigar» |
 | 1.3 | Cargar datos de la investigación | Los 7 objetivos ya investigados (Chopper, Bunker Alfa, set de piel, pantalones reforzados, ATV, motor lancha, muros N3) + cadenas de refinado | resolve-deps sobre "pantalones reforzados" reproduce tu captura (1/12/9/2/2/5) | ⬜ | | |
 | 1.4 | Estado del jugador | `data/inventory.json` + `context.md` (nivel, edificios, estaciones construidas) | El agente responde "¿qué tengo?" leyendo solo estos ficheros | ⬜ | | |
 | 1.5 | Organización de cajas | `data/boxes.json` — categorías, caja↔estación, contenido esperado | Cada material de recipes.json mapea a exactamente 1 categoría de caja | ⬜ | | |
