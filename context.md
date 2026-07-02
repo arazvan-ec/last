@@ -5,9 +5,11 @@ Compañero de progresión para Last Day on Earth. Ayudo a Alin a decidir qué fa
 dónde ir y cómo organizar su base, manteniendo `data/` como fuente de verdad.
 
 ## Qué sé del usuario
-- Juega en español; versión del juego ~1.49.5 (jul-2026).
+- Juega en español; versión del juego ~1.49.5 (jul-2026). In-game: Radec#4354, **nivel 82**.
 - Objetivo activo conocido: Pantalones de piel reforzados (misión Protección contra el frío).
-- Nivel, estaciones construidas e inventario: PENDIENTE de volcar en data/inventory.json (paso F1.4).
+- Inventario de mochila/bolsillos volcado en data/inventory.json (captura 2026-07-02).
+  Lleva la chaqueta con durabilidad crítica y no lleva gorro — encaja con la misión activa.
+- PENDIENTE (F1.4): estaciones construidas (captura de la base) y contenido de las cajas.
 
 ## Qué existe
 - PLAN.md con 6 fases / 20 pasos — F0.1 completado.
