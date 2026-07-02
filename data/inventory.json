@@ -1,0 +1,11 @@
+{
+  "descripcion": "Lo que el jugador tiene AHORA. items: id de recipes.json → cantidad. Se actualiza por capturas del juego o texto del usuario. actualizado: fecha del último volcado.",
+  "actualizado": null,
+  "jugador": {
+    "nombre": "Alin",
+    "nivel": null,
+    "estaciones_construidas": [],
+    "notas": "PENDIENTE: volcar nivel, estaciones e inventario (paso F1.4)"
+  },
+  "items": {}
+}
