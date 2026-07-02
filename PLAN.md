@@ -73,7 +73,7 @@ ldoe-companion/
 
 | # | Paso | Entregable | Verificación | Estado | Fecha | Notas |
 |---|------|-----------|--------------|--------|-------|-------|
-| 2.1 | Resolutor de dependencias | `tools/resolve-deps.mjs objetivo.json inventory.json` → árbol expandido con faltantes netos (descuenta inventario en cascada) | Caso test: con 2 lingotes de acero en inventario, pide 3 placas menos de materiales aguas arriba | ⬜ | | |
+| 2.1 | Resolutor de dependencias | `tools/resolve-deps.mjs objetivo.json inventory.json` → árbol expandido con faltantes netos (descuenta inventario en cascada) | Caso test: con 2 lingotes de acero en inventario, pide 3 placas menos de materiales aguas arriba | ✅ | 2026-07-02 | Con 2 lingotes: crafteos de acero 5→3 y aguas arriba baja en cascada (bauxita 25→15). Exporta resolver() para F2.2/UI |
 | 2.2 | Planificador de rutas | `tools/plan-route.mjs` → faltantes agrupados por zona, ordenados por nº de items y energía | Salida legible en markdown y JSON (la consume la UI) | ⬜ | | |
 | 2.3 | Tests del motor | `tools/*.test.mjs` con los 7 objetivos | `node --test` verde | ⬜ | | |
 
