@@ -18,6 +18,23 @@ Con la captura del panel (o el nombre):
 Anotar SIEMPRE los relojes visibles (temporada, zonas que caducan): el plan se
 ordena por lo que caduca antes.
 
+**Requisitos de entrada (la puerta).** Antes de rutar a Alin a un sitio,
+comprobar qué exige entrar y sobrevivir allí:
+- **Frío** (norte helado, campo de entrenamiento helado): ropa de invierno —
+  set de piel o reforzado. Las stats de frío van en las notas de recipes.json
+  cuando hay captura (p. ej. gorro reforzado: frío 4).
+- **Plaga / radiación**: equipo o consumibles específicos (por investigar al
+  toparse con la primera zona de este tipo).
+- **Llave / desbloqueo**: carta CAC A para Bunker Alfa, plano de lancha en el
+  Puerto, etc. — están como requisitos u objetivos en objectives.json.
+- **Combate duro** (zonas calavera, campamentos bandidos): armas + botiquines
+  (recomendación registrada: 2 armas / 5 botiquines / 5 comida-agua).
+
+Si Alin NO cumple la puerta, el requisito se convierte en **sub-objetivo previo**
+y el bucle se aplica primero a él (así «Camino al barco» → antes, el set de
+invierno). Nunca poner en el plan una parada cuya puerta no se cumple; si la
+puerta es desconocida, decirlo y pedir captura de la zona.
+
 ## 1. Volcar el estado real
 
 Pedir las capturas que falten (inventario, PLANOS del objeto, panel de tareas).
