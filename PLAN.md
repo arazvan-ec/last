@@ -94,7 +94,7 @@ ldoe-companion/
 | # | Paso | Entregable | Verificación | Estado | Fecha | Notas |
 |---|------|-----------|--------------|--------|-------|-------|
 | 4.1 | UI base que lee data/ | `ui/index.html` carga recipes/objectives/inventory (fetch local o embebido por build) | Muestra % de avance por objetivo idéntico al que calcula resolve-deps | ✅ | 2026-07-02 | Motor extraído a engine.mjs (puro): CLI y UI importan el MISMO módulo → paridad por construcción. Verificado con Chromium headless: 7/7 objetivos con % idéntico (fixture no trivial: 31%/40%). Servir con `python3 -m http.server` desde la raíz |
-| 4.2 | Grafo/timeline navegable | Vista de árbol de dependencias: nodo = item, avance en cascada, tap para expandir a sus ingredientes | Navegar Pantalones reforzados → Placa de acero → Lingote → Cobre muestra faltantes correctos en cada nivel | ⬜ | | |
+| 4.2 | Grafo/timeline navegable | Vista de árbol de dependencias: nodo = item, avance en cascada, tap para expandir a sus ingredientes | Navegar Pantalones reforzados → Placa de acero → Lingote → Cobre muestra faltantes correctos en cada nivel | ✅ | 2026-07-02 | Verificado con Chromium: reforzados ×1 → placa acero ×5 → lingote acero ×5 (inv 2, faltan 3) → cobre ×3. La cascada del inventario se ve nivel a nivel |
 | 4.3 | Edición de inventario desde la UI | Steppers +/− que actualizan el estado (storage persistente en artifact; export/import JSON compatible con inventory.json) | Editar en UI y pasar el JSON al agente deja ambos mundos consistentes (shared workspace) | ⬜ | | |
 
 ---
