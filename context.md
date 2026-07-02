@@ -24,4 +24,5 @@ dónde ir y cómo organizar su base, manteniendo `data/` como fuente de verdad.
 - No marcar pasos ✅ sin pasar su verificación. 1 paso = 1 commit + push.
 
 ## Estado actual
-- Siguiente paso: F0.2 (escribir docs/SPEC.md con requisitos, entidades y métrica de éxito).
+- Fase 0 completada (F0.1–F0.3): estructura, SPEC y plan instalado como log vivo.
+- Siguiente paso: F1.1 (esquema del grafo de recetas en data/recipes.json + validate.mjs).
