@@ -105,7 +105,7 @@ ldoe-companion/
 |---|------|-----------|--------------|--------|-------|-------|
 | 5.1 | Ledger de aprendizajes | `docs/LEARNINGS.md`: recetas wiki vs. verificadas in-game, cambios por versión del juego (Kefir cambia recetas) | Cada corrección de datos referencia su captura/fuente | ✅ | 2026-07-02 | Creado en F3.2; completado con cambios de versión (beta 1.30.1, transmisión ATV) y huecos pendientes. La única corrección (pantalones) referencia su captura |
 | 5.2 | Checklist agent-native | Auditoría contra los *success criteria* del artículo (parity, granularity, composability, CRUD completo por entidad) | Checklist en docs/ con todo ✓ o justificación | ✅ | 2026-07-02 | `docs/checklist-agent-native.md`: 6 criterios auditados con evidencia, CRUD 5×4 completo, 4 huecos justificados (todos de datos/investigación, ninguno de arquitectura) |
-| 5.3 | Métrica de éxito final (the ultimate test) | Pedir al agente un outcome NO diseñado (ej. "¿cuántas vueltas a Bunker Alfa me faltan para el ATV?") | El agente lo resuelve componiendo primitivos sin código nuevo | ⬜ | | |
+| 5.3 | Métrica de éxito final (the ultimate test) | Pedir al agente un outcome NO diseñado (ej. "¿cuántas vueltas a Bunker Alfa me faltan para el ATV?") | El agente lo resuelve componiendo primitivos sin código nuevo | ✅ | 2026-07-02 | Resuelto con `resolve-deps atv --json` + `sources.json`: 640 cables ÷ 7/vuelta = 92 vueltas vía cable → conclusión útil: mejor bauxita en zonas rojas; Alfa solo para piezas-motor (ritmo por investigar, hueco en LEARNINGS). Sin tocar tools/ |
 
 ---
 
@@ -122,6 +122,7 @@ ldoe-companion/
 | 2026-07-02 | F2.1–F2.3 | 3 | Motor determinista completo: resolve-deps (descuento en cascada), plan-route (agrupado por zona, md+json) y 12 tests verdes. Fase 2 cerrada; F1.4 sigue esperando datos del jugador |
 | 2026-07-02 | F3.1–F3.3 | 3 | Capa agente completa: SKILL.md (paridad UI↔data), flujo captura→datos + LEARNINGS.md fundacional, 3 prompts compuestos. Fase 3 cerrada; F1.4 en curso en otra sesión |
 | 2026-07-02 | F4.1–F4.3 | 3 | UI como vista del estado: engine.mjs puro compartido CLI↔navegador, árbol navegable con cascada, steppers + export/import. Verificado end-to-end con Chromium headless. Fase 4 cerrada |
+| 2026-07-02 | F5.1–F5.3 | 3 | Cierre: ledger completado, checklist agent-native (todo ✓ o justificado) y ultimate test superado (vueltas a Alfa para el ATV por composición). Fase 5 cerrada — solo queda F1.4 (otra sesión) |
 
 ---
 
