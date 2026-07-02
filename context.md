@@ -9,7 +9,11 @@ dónde ir y cómo organizar su base, manteniendo `data/` como fuente de verdad.
 - Objetivo activo conocido: Pantalones de piel reforzados (misión Protección contra el frío).
 - Inventario de mochila/bolsillos volcado en data/inventory.json (captura 2026-07-02).
   Lleva la chaqueta con durabilidad crítica y no lleva gorro — encaja con la misión activa.
-- PENDIENTE (F1.4): estaciones construidas (captura de la base) y contenido de las cajas.
+- Base vista (captura 2026-07-02, en modo construcción): Chopper YA construido (garaje de
+  piedra), fundición, perrera, ducha, banco de armero probable, ~25 cajas.
+- PENDIENTE (F1.4): contenido de las cajas y confirmar estaciones clave (Curtidor, Banco,
+  Fundición refinada, Costura, Reciclador, Cantero, Mesa médica, CB Radio) — pedir captura
+  de la base FUERA del modo construcción.
 
 ## Qué existe
 - PLAN.md con 6 fases / 20 pasos — F0.1 completado.

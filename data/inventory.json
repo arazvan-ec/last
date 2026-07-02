@@ -5,7 +5,17 @@
   "jugador": {
     "nombre": "Alin (in-game: Radec#4354)",
     "nivel": 82,
-    "estaciones_construidas": [],
+    "estaciones_construidas": [
+      "Fundición (horno con chimenea, sobre parche de tierra)",
+      "Banco de armero — probable (mesa grande con rifle y bombonas de soldadura)",
+      "Mesa de electricista o similar — por confirmar (mueble alto de paneles junto a la fundición)",
+      "Ducha (torre de madera con pila)",
+      "Colector/barril de agua de lluvia — probable",
+      "Perrera con 3-4 perros (casetas azul y roja + caja de crianza)",
+      "2 hogueras con asador (exterior sur)",
+      "Garaje de piedra con el Chopper aparcado"
+    ],
+    "vehiculos": ["Chopper construido (visto aparcado en garaje de piedra, captura 2026-07-02)"],
     "equipado": [
       "Hacha (durabilidad baja)",
       "Mochila",
@@ -14,7 +24,7 @@
       "Botas",
       "Sin gorro"
     ],
-    "notas": "Stats: daño 20 · vel. ataque 1,1 · movimiento 42 · armadura 11 · frío 6 · radiación 0 · bio 3. PENDIENTE: estaciones construidas (falta captura de la base) y contenido de las cajas."
+    "notas": "Stats: daño 20 · vel. ataque 1,1 · movimiento 42 · armadura 11 · frío 6 · radiación 0 · bio 3. Base: casa grande de madera con ~25 cajas, suelo parcial de piedra, zona decorativa (pared con TV, gramófono, mesa de comedor), estanques decorativos y trampas de pinchos en el perímetro. PENDIENTE: contenido de las cajas y confirmar estaciones clave (Curtidor, Banco de trabajo, Fundición refinada, Mesa de costura, Reciclador, Mesa del cantero, Mesa médica, CB Radio) — la captura en modo construcción las muestra translúcidas."
   },
   "items": {
     "tablon-pino": 3,
