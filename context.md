@@ -11,8 +11,13 @@ dónde ir y cómo organizar su base, manteniendo `data/` como fuente de verdad.
   Contador de fichas de temporada: 17.
 - **Misión «Camino al barco»**: completar tareas diarias del mapa para desbloquear
   «Barco atrapado en el hielo». NO es misión de crafteo → no entra en recipes/objectives;
-  se sigue aquí. Contador «Completa las tareas en el mapa» cortado en la captura
-  (¿0/3?). Pendiente: captura del panel de tareas diarias para planificar ruta exacta.
+  se sigue aquí. Estado 2026-07-02 (captura del mapa): **0/3** tareas de hoy:
+  1. «Ve a la anomalía climática» (Temporada) — pin morado al norte del Hogar, evento 10d 2h.
+  2. «En busca de chapas» — seguir el rastro de flechas rojas al NE hasta el campamento
+     bandido; zona calavera roja al lado con timers 23h 49m / 2d 2h (la corta caduca HOY).
+  3. «Recursos para los páramos» — explorar camping Greenwood, zona de cuarentena y
+     campo de entrenamiento helado (reputación; texto cortado en captura).
+  Energía en captura: 198/200 (tope, regen desperdiciándose). Latas/cupones: 89.
 
 ## Qué sé del usuario
 - Juega en español; versión del juego ~1.49.5 (jul-2026). In-game: Radec#4354, **nivel 82**.
