@@ -1,0 +1,119 @@
+{
+  "descripcion": "Misiones/objetivos del jugador con sus requisitos (ids de recipes.json). Un objetivo puede tener partes ordenadas. activo: true = objetivo en curso del jugador.",
+  "objetivos": [
+    {
+      "id": "pantalones-piel-reforzados",
+      "nombre": "Pantalones de piel reforzados",
+      "mision": "Protección contra el frío",
+      "activo": true,
+      "requisitos": [{ "id": "pantalones-piel-reforzados", "qty": 1 }],
+      "notas": "Receta verificada in-game por captura (1/12/9/2/2/5). Gorro y chaqueta reforzados de la misma misión: ver recipes.json (wiki)."
+    },
+    {
+      "id": "chopper",
+      "nombre": "Chopper",
+      "nivel": 6,
+      "activo": false,
+      "completado": true,
+      "notas": "Ya construido — visto aparcado en el garaje de piedra (captura de la base, 2026-07-02).",
+      "partes": [
+        {
+          "nombre": "Plano",
+          "requisitos": [
+            { "id": "tablon-pino", "qty": 10 },
+            { "id": "lingote-hierro", "qty": 5 },
+            { "id": "pernos", "qty": 5 }
+          ]
+        },
+        {
+          "nombre": "Ensamblaje",
+          "requisitos": [
+            { "id": "piezas-motor", "qty": 20 },
+            { "id": "cableado", "qty": 10 },
+            { "id": "ruedas-chopper", "qty": 2 },
+            { "id": "pernos", "qty": 30 },
+            { "id": "rodamientos", "qty": 10 },
+            { "id": "piezas-goma", "qty": 20 },
+            { "id": "chatarra", "qty": 30 },
+            { "id": "horquilla-chopper", "qty": 1 },
+            { "id": "deposito-chopper", "qty": 1 },
+            { "id": "mochila-basica", "qty": 4 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bunker-alfa-acceso",
+      "nombre": "Acceso a Bunker Alfa",
+      "activo": false,
+      "requisitos": [{ "id": "carta-cac-a", "qty": 1 }],
+      "notas": "Requiere CB Radio construida. 1ª entrada con carta; después código (reset 48 h). Recomendado por vuelta: 2 armas, 5 botiquines, 5 comida/agua."
+    },
+    {
+      "id": "set-piel-basico",
+      "nombre": "Set de piel básico",
+      "nivel": 46,
+      "activo": false,
+      "requisitos": [
+        { "id": "pantalones-piel", "qty": 1 },
+        { "id": "botas-piel", "qty": 1 }
+      ],
+      "notas": "Gorro y chaqueta de piel: cantidades por verificar in-game antes de añadirlos como requisitos."
+    },
+    {
+      "id": "atv",
+      "nombre": "ATV",
+      "nivel": 18,
+      "activo": false,
+      "requisitos": [
+        { "id": "pernos", "qty": 320 },
+        { "id": "rodamientos", "qty": 100 },
+        { "id": "transmision-atv", "qty": 1 },
+        { "id": "deposito-atv", "qty": 1 },
+        { "id": "tela-gruesa", "qty": 250 },
+        { "id": "chatarra", "qty": 500 },
+        { "id": "piezas-goma", "qty": 150 },
+        { "id": "ruedas-atv", "qty": 16 },
+        { "id": "cableado", "qty": 120 },
+        { "id": "piezas-motor", "qty": 200 }
+      ]
+    },
+    {
+      "id": "motor-lancha",
+      "nombre": "Motor de lancha",
+      "nivel": 64,
+      "activo": false,
+      "requisitos": [
+        { "id": "piezas-motor", "qty": 10 },
+        { "id": "helice", "qty": 3 },
+        { "id": "plastico", "qty": 20 },
+        { "id": "llave-inglesa", "qty": 10 },
+        { "id": "filtro-aire", "qty": 10 },
+        { "id": "piezas-goma", "qty": 20 }
+      ],
+      "notas": "El plano de la lancha se obtiene visitando el Puerto."
+    },
+    {
+      "id": "muro-nivel-3",
+      "nombre": "Muro nivel 3 (por muro)",
+      "activo": false,
+      "partes": [
+        {
+          "nombre": "Nivel 1 → 2",
+          "requisitos": [
+            { "id": "caliza", "qty": 10 },
+            { "id": "tablon-pino", "qty": 20 }
+          ]
+        },
+        {
+          "nombre": "Nivel 2 → 3",
+          "requisitos": [
+            { "id": "ladrillo-piedra", "qty": 20 },
+            { "id": "tablon-pino", "qty": 10 }
+          ]
+        }
+      ],
+      "notas": "La horda solo rompe nivel 1; nivel 3 es indestructible para la horda."
+    }
+  ]
+}

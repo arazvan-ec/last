@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LDoE Progress Companion</title>
+<style>
+  :root{
+    --bg:#23271d; --panel:#2c3125; --panel2:#343a2c; --line:#454c3a;
+    --txt:#e9e6da; --dim:#a2a890; --teal:#3ec9a7; --teal-dim:#2a8f77;
+    --amber:#e8c46a; --red:#ff6a5e; --ok:#9ad34f;
+    --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0 auto;background:var(--bg);color:var(--txt);max-width:760px;padding:16px;
+       font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+  h1{font-size:19px;margin:0 0 2px}
+  .sub{color:var(--dim);font-size:12.5px;margin:0 0 14px}
+  code{font-family:var(--mono);font-size:.92em}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .chip{background:var(--panel);border:1px solid var(--line);color:var(--txt);border-radius:999px;
+        padding:6px 12px;font-size:13px;cursor:pointer}
+  .chip.on{border-color:var(--teal);color:var(--teal)}
+  .chip .pct{font-family:var(--mono);font-size:11.5px;color:var(--dim);margin-left:6px}
+  .chip.on .pct{color:var(--teal)}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:12px}
+  .barwrap{background:var(--bg);border:1px solid var(--line);border-radius:999px;height:14px;overflow:hidden;margin:8px 0 4px}
+  .bar{background:var(--teal);height:100%;transition:width .25s}
+  .meta{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
+  .mats li{margin:3px 0}
+  .qty{font-family:var(--mono);color:var(--amber)}
+  .nodo{margin:2px 0}
+  .nodo .fila{display:flex;align-items:center;gap:6px}
+  .tog{background:none;border:none;color:var(--teal);cursor:pointer;font-size:13px;
+       width:22px;height:22px;padding:0;flex:none}
+  .hoja-pt{width:22px;text-align:center;color:var(--dim);flex:none}
+  .badge{font-family:var(--mono);font-size:11.5px;border-radius:4px;padding:0 5px}
+  .b-inv{color:var(--teal)}
+  .b-falta{color:var(--amber)}
+  .b-ok{color:var(--ok)}
+  .hijos{margin-left:20px;border-left:1px solid var(--line);padding-left:6px}
+  .st{background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;
+      width:24px;height:24px;cursor:pointer;font-size:14px;line-height:1;flex:none}
+  .st:active{background:var(--teal-dim)}
+  .fila .st{margin-left:2px}
+  .fila .spacer{flex:1}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:8px}
+  .btn{background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:8px;
+       padding:6px 12px;font-size:13px;cursor:pointer}
+  .btn:hover{border-color:var(--teal)}
+  textarea{width:100%;min-height:90px;background:var(--bg);color:var(--txt);border:1px solid var(--line);
+           border-radius:8px;font-family:var(--mono);font-size:12px;padding:8px;margin-top:8px}
+  .aviso{color:var(--amber)}
+  .err{border-color:var(--red)}
+  footer{color:var(--dim);font-size:12px;margin-top:18px}
+</style>
+</head>
+<body>
+<h1>LDoE Progress Companion</h1>
+<p class="sub">Vista de <code>data/</code> — la fuente de verdad son los ficheros; esto solo los pinta.</p>
+<div id="app"><div class="panel">Cargando <code>data/</code>…</div></div>
+<footer>Mismo motor que el CLI (<code>tools/engine.mjs</code>): el % que ves aquí es el que
+calcula <code>resolve-deps</code>.</footer>
+
+<script type="module">
+import { resolver, progreso } from '../tools/engine.mjs';
+
+const $app = document.getElementById('app');
+const LS = 'ldoe-inventario';  // ediciones locales de la UI (shared workspace con el agente vía export/import)
+let datos = null;              // {recipes, objectives, inventory} — inventory.items = estado local
+let base = null;               // items tal y como están en data/inventory.json (para detectar divergencia)
+let actual = null;             // id del objetivo seleccionado
+let abiertos = new Set();      // paths expandidos del árbol (sobreviven al re-render)
+
+async function cargar() {
+  try {
+    const [recipes, objectives, inventory] = await Promise.all(
+      ['recipes', 'objectives', 'inventory'].map((f) =>
+        fetch(`../data/${f}.json`).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }))
+    );
+    base = { ...(inventory.items ?? {}) };
+    const local = JSON.parse(localStorage.getItem(LS) ?? 'null');
+    datos = { recipes, objectives, inventory: { ...inventory, items: local ?? { ...base } } };
+    actual = (objectives.objetivos.find((o) => o.activo) ?? objectives.objetivos[0]).id;
+    render();
+  } catch (e) {
+    $app.innerHTML = `<div class="panel err"><b>No puedo leer <code>data/</code></b> (${esc(e.message)}).<br>
+      Sirve el repo por HTTP desde la raíz — p. ej. <code>python3 -m http.server</code> —
+      y abre <code>http://localhost:8000/ui/</code>. Con <code>file://</code> el navegador bloquea el fetch.</div>`;
+  }
+}
+
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const nombreDe = (id) => datos.recipes.items.find((i) => i.id === id)?.nombre ?? id;
+
+// --- inventario local (F4.3): steppers → localStorage → export/import ---
+const inv = () => datos.inventory.items;
+const divergente = () => JSON.stringify(inv()) !== JSON.stringify(base);
+
+function mod(id, delta) {
+  const v = Math.max(0, (inv()[id] ?? 0) + delta);
+  if (v === 0) delete inv()[id]; else inv()[id] = v;
+  localStorage.setItem(LS, JSON.stringify(inv()));
+  render();
+}
+
+// JSON compatible con data/inventory.json: el agente puede pegarlo tal cual.
+function exportarInventario() {
+  return JSON.stringify(
+    { ...datos.inventory, actualizado: new Date().toISOString().slice(0, 10), items: inv() },
+    null, 2
+  );
+}
+window.exportarInventario = exportarInventario;
+
+function importarInventario(texto) {
+  const j = JSON.parse(texto);
+  datos.inventory.items = j.items ?? j;   // acepta inventory.json completo o solo el mapa
+  localStorage.setItem(LS, JSON.stringify(inv()));
+  render();
+}
+
+function restaurar() {
+  datos.inventory.items = { ...base };
+  localStorage.removeItem(LS);
+  render();
+}
+
+function render() {
+  const objetivos = datos.objectives.objetivos;
+  const chips = objetivos.map((o) => {
+    const p = progreso(o.id, datos);
+    return `<button class="chip${o.id === actual ? ' on' : ''}" data-obj="${o.id}">
+      ${o.activo ? '● ' : ''}${esc(o.nombre)}<span class="pct" data-pct="${o.id}">${p.pct}%</span></button>`;
+  }).join('');
+
+  const res = resolver(actual, datos);
+  const p = progreso(actual, datos);
+  const faltantes = Object.entries(res.faltantes_hoja);
+  const panel = `
+    <div class="panel">
+      <b>${esc(res.objetivo.nombre)}</b>
+      <div class="barwrap"><div class="bar" style="width:${p.pct}%"></div></div>
+      <div class="meta"><span id="pct-actual">${p.pct}%</span> — ${p.bruto - p.neto}/${p.bruto} materiales hoja cubiertos</div>
+    </div>
+    <div class="panel mats">
+      <b>Materiales a conseguir (netos)</b>
+      ${faltantes.length === 0 ? '<p>Nada: el inventario lo cubre todo ✔</p>' : `<ul>
+        ${faltantes.map(([id, qty]) => `<li>${esc(nombreDe(id))}: <span class="qty">${qty}</span></li>`).join('')}
+      </ul>`}
+      ${res.estaciones.length ? `<div class="meta">Estaciones: ${res.estaciones.map(esc).join(', ')}</div>` : ''}
+    </div>
+    <div class="panel">
+      <b>Árbol de dependencias</b> <span class="meta">(toca ▸ para expandir; − / + editan tu inventario)</span>
+      <div id="arbol">${res.arbol.map((n, i) => nodoHTML(n, String(i))).join('')}</div>
+    </div>
+    <div class="panel">
+      <b>Inventario local</b>
+      <span class="meta" id="inv-estado">${divergente()
+        ? '<span class="aviso">editado en la UI — expórtalo y pásaselo al agente para sincronizar data/</span>'
+        : 'en sync con <code>data/inventory.json</code>'}</span>
+      <div class="toolbar">
+        <button class="btn" id="btn-exportar">Exportar JSON</button>
+        <button class="btn" id="btn-importar">Importar JSON</button>
+        <button class="btn" id="btn-restaurar">Restaurar data/</button>
+      </div>
+      <textarea id="io" hidden placeholder="Pega aquí un inventory.json (o solo el mapa items) y pulsa Importar de nuevo"></textarea>
+    </div>`;
+
+  $app.innerHTML = `<div class="chips">${chips}</div>${panel}`;
+  for (const b of $app.querySelectorAll('[data-obj]'))
+    b.onclick = () => { actual = b.dataset.obj; render(); };
+  for (const t of $app.querySelectorAll('.tog'))
+    t.onclick = () => {
+      const nodo = t.closest('.nodo');
+      const hijos = nodo.querySelector(':scope > .hijos');
+      hijos.hidden = !hijos.hidden;
+      t.textContent = hijos.hidden ? '▸' : '▾';
+      if (hijos.hidden) abiertos.delete(nodo.dataset.path); else abiertos.add(nodo.dataset.path);
+    };
+  for (const s of $app.querySelectorAll('[data-mod]'))
+    s.onclick = () => { const [id, d] = s.dataset.mod.split(','); mod(id, Number(d)); };
+
+  const $io = document.getElementById('io');
+  document.getElementById('btn-exportar').onclick = () => {
+    $io.hidden = false; $io.value = exportarInventario(); $io.select();
+    navigator.clipboard?.writeText($io.value).catch(() => {});
+  };
+  document.getElementById('btn-importar').onclick = () => {
+    if ($io.hidden || !$io.value.trim()) { $io.hidden = false; $io.value = ''; $io.focus(); return; }
+    try { importarInventario($io.value); } catch (e) { alert(`JSON inválido: ${e.message}`); }
+  };
+  document.getElementById('btn-restaurar').onclick = restaurar;
+}
+
+// Nodo del árbol de resolver(): qty pedida, cuánto cubre el inventario (en
+// cascada) y neto a producir/farmear. Hijos colapsados por defecto.
+function nodoHTML(n, path) {
+  const badges = [
+    n.inventario > 0 ? `<span class="badge b-inv">inv ${n.inventario}</span>` : '',
+    n.neto === 0 ? '<span class="badge b-ok">✔</span>'
+                 : `<span class="badge b-falta" data-neto="${n.id}">faltan ${n.neto}</span>`,
+  ].filter(Boolean).join(' ');
+  const tieneHijos = n.hijos.length > 0;
+  const abierto = abiertos.has(path);
+  const tengo = inv()[n.id] ?? 0;
+  return `<div class="nodo" data-tree="${n.id}" data-path="${path}">
+    <div class="fila">
+      ${tieneHijos ? `<button class="tog" aria-label="Expandir">${abierto ? '▾' : '▸'}</button>` : '<span class="hoja-pt">·</span>'}
+      <span>${esc(n.nombre)} <span class="qty">×${n.qty}</span></span> ${badges}
+      <span class="spacer"></span>
+      <button class="st" data-mod="${n.id},-1" aria-label="Quitar 1 de ${esc(n.nombre)}">−</button>
+      <span class="meta" data-tengo="${n.id}">${tengo}</span>
+      <button class="st" data-mod="${n.id},1" aria-label="Añadir 1 a ${esc(n.nombre)}">+</button>
+    </div>
+    ${tieneHijos ? `<div class="hijos"${abierto ? '' : ' hidden'}>${n.hijos.map((h, i) => nodoHTML(h, `${path}.${i}`)).join('')}</div>` : ''}
+  </div>`;
+}
+
+cargar();
+</script>
+</body>
+</html>

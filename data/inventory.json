@@ -1,0 +1,64 @@
+{
+  "descripcion": "Lo que el jugador tiene AHORA. items: id de recipes.json → cantidad. no_modelado: objetos vistos en capturas que no forman parte del grafo de crafteo. Se actualiza por capturas del juego o texto del usuario.",
+  "actualizado": "2026-07-02",
+  "fuente": "Captura in-game: pantalla de personaje + inventario (bolsillos + mochila)",
+  "jugador": {
+    "nombre": "Alin (in-game: Radec#4354)",
+    "nivel": 82,
+    "estaciones_construidas": [
+      "Banco de trabajo ×2 (mesa metálica con motor eléctrico azul — aquí se hacen las placas)",
+      "Fundición (horno con chimenea, lado suroeste)",
+      "Fundición refinada — probable (horno grande con cubierta de cuero + chimenea, centro)",
+      "Mesa de costura (escritorio con máquina de coser)",
+      "Banco de armero (mesa grande con armas y bombonas de soldadura, lado este)",
+      "Mesa de electricista (escritorio con placas de circuito, sureste)",
+      "CB Radio (transceptor militar verde sobre escritorio) — códigos de Bunker Alfa",
+      "Curtidor ×2-3 (bastidores de piel en el exterior este)",
+      "Ducha + colector de agua de lluvia",
+      "Perrera con 3-4 perros (casetas azul y roja + caja de crianza)",
+      "Huerto/campo arado grande + 2 hogueras con olla (exterior suroeste)",
+      "Garaje de piedra: Chopper + taller (pared de herramientas, mesa con tornillo de banco)",
+      "Taquilla/armario metálico junto a la fundición refinada"
+    ],
+    "estaciones_por_confirmar": ["Reciclador", "Mesa del cantero", "Mesa médica"],
+    "vehiculos": ["Chopper construido (visto aparcado en garaje de piedra, captura 2026-07-02)"],
+    "equipado": [
+      "Hacha (durabilidad baja)",
+      "Mochila",
+      "Chaqueta (durabilidad crítica, en rojo)",
+      "Pantalones",
+      "Botas",
+      "Sin gorro"
+    ],
+    "notas": "Stats: daño 20 · vel. ataque 1,1 · movimiento 42 · armadura 11 · frío 6 · radiación 0 · bio 3. Base: casa grande con ~20-25 cajas ETIQUETADAS con iconos (tronco=madera, llave inglesa azul=componentes/herramientas, aspa roja en círculo, pistola=armas, llave negra…), zona decorativa (sofá, comedor, pared con TV, gramófono, maniquí, póster), estanques y trampas de pinchos en el perímetro. PENDIENTE: volcar el contenido de las cajas (capturas de cajas abiertas, se hará incremental)."
+  },
+  "items": {
+    "tablon-pino": 3,
+    "piel": 9,
+    "pernos": 5,
+    "chatarra": 39,
+    "trozo-tela": 5,
+    "lingote-acero": 6
+  },
+  "notas_identificacion": [
+    "lingote-acero x6: identificado por color (ingote oscuro azulado, claramente más oscuro que los pernos plateados de la misma captura). Si una futura captura muestra que era lingote de hierro, corregir aquí y anotar en LEARNINGS.md.",
+    "chatarra 39 = stack de 20 (mochila fila 1) + stack de 19 (mochila fila 3).",
+    "trozo-tela x5: cuadrado de tela deshilachada beige (icono del trozo de tela básico, no de la tela gruesa)."
+  ],
+  "no_modelado": {
+    "pistola-glock": { "qty": 1, "nota": "durabilidad baja" },
+    "pico": { "qty": 1 },
+    "vendas": { "qty": 3, "nota": "2 en bolsillos + 1 en ranura rápida" },
+    "guiso-cocinado": { "qty": 16 },
+    "setas": { "qty": 1 },
+    "te-de-bayas": { "qty": 6 },
+    "lata-de-comida": { "qty": 2 },
+    "botella-de-agua": { "qty": 22 },
+    "bayas": { "qty": 11 },
+    "semillas": { "qty": 2 },
+    "cuerda": { "qty": 37 },
+    "memoria-usb": { "qty": 2, "nota": "reciclables → circuito electrónico" },
+    "pack-medicinas-evento": { "qty": 1, "nota": "caduca (temporizador)" },
+    "racion-comida-evento": { "qty": 1, "nota": "caduca (temporizador)" }
+  }
+}
