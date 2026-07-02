@@ -1,43 +1,16 @@
 #!/usr/bin/env node
-// Ruta de farmeo: toma los faltantes netos de resolve-deps y los agrupa por la
-// mejor fuente (prioridad 1) de sources.json. Las zonas se ordenan por nº de
-// items distintos que resuelven y, a igualdad, por energía si la fuente la
-// declara (campo opcional `energia`; sin dato va al final del empate).
+// CLI de la ruta de farmeo. La lógica vive en engine.mjs (planificarRuta);
+// aquí solo hay E/S: leer data/, pintar markdown o JSON.
 //
 // Uso: node tools/plan-route.mjs <objetivo-id|item-id> [inventario.json] [--json]
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { cargarDatos, resolver } from './resolve-deps.mjs';
+import { planificarRuta } from './engine.mjs';
+import { cargarDatos } from './resolve-deps.mjs';
+
+export { planificarRuta };
 
 const dataPath = (f) => fileURLToPath(new URL(`../data/${f}`, import.meta.url));
-
-export function planificarRuta(objetivoId, datos, sources) {
-  const res = resolver(objetivoId, datos);
-  if (!res) return null;
-
-  const zonas = new Map(); // lugar → { lugar, energia?, items: [{id, nombre, qty, detalle?, alternativas}] }
-  const items = new Map(datos.recipes.items.map((i) => [i.id, i]));
-
-  for (const [id, qty] of Object.entries(res.faltantes_hoja)) {
-    const fuentes = sources.materiales[id]?.fuentes ?? [];
-    const mejor = [...fuentes].sort((a, b) => a.prioridad - b.prioridad)[0] ??
-      { lugar: 'por investigar', prioridad: 99 };
-    if (!zonas.has(mejor.lugar))
-      zonas.set(mejor.lugar, { lugar: mejor.lugar, energia: mejor.energia ?? null, items: [] });
-    zonas.get(mejor.lugar).items.push({
-      id,
-      nombre: items.get(id).nombre,
-      qty,
-      detalle: mejor.detalle ?? null,
-      alternativas: fuentes.filter((f) => f !== mejor).map((f) => f.lugar),
-    });
-  }
-
-  const ruta = [...zonas.values()].sort(
-    (a, b) => b.items.length - a.items.length || (a.energia ?? Infinity) - (b.energia ?? Infinity)
-  );
-  return { objetivo: res.objetivo, ruta, crafteos: res.crafteos, estaciones: res.estaciones };
-}
 
 function pintarMarkdown(plan) {
   const lineas = [`# Ruta de farmeo — ${plan.objetivo.nombre}`, ''];
