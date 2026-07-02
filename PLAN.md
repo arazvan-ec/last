@@ -85,7 +85,7 @@ ldoe-companion/
 |---|------|-----------|--------------|--------|-------|-------|
 | 3.1 | Skill del compañero | `skills/ldoe-companion/SKILL.md`: cómo leer/escribir data/, cuándo invocar tools/, cómo actualizar recetas desde capturas de pantalla | Test de paridad: toda acción de la UI es alcanzable por el agente editando data/ | ✅ | 2026-07-02 | Tabla de paridad cubre las 6 acciones de ui/index.html (selector, ±, ✓, reset, custom add/del) + regla: acción sin primitivo = bug de arquitectura |
 | 3.2 | Flujo captura → datos | Procedimiento en la skill: captura del juego → actualizar inventory.json / corregir recipes.json (`verificado: "ingame"`) | Con tu captura de pantalones reforzados, el agente corrige cantidades y lo anota en LEARNINGS.md | ✅ | 2026-07-02 | Procedimiento de 5 pasos en SKILL.md; LEARNINGS.md creado con la corrección de los pantalones (captura Alin) como entrada fundacional. Adelanta el entregable de F5.1 |
-| 3.3 | Prompts compuestos (features = prompts) | `skills/ldoe-companion/prompts/`: `planifica-sesion.md`, `que-reciclo.md`, `organiza-cajas.md` | Cada prompt produce un resultado útil usando solo primitivos + tools/ | ⬜ | | |
+| 3.3 | Prompts compuestos (features = prompts) | `skills/ldoe-companion/prompts/`: `planifica-sesion.md`, `que-reciclo.md`, `organiza-cajas.md` | Cada prompt produce un resultado útil usando solo primitivos + tools/ | ✅ | 2026-07-02 | Los 3 prompts componen solo data/ + resolve-deps/plan-route/validate (dry-run OK); ningún paso pide código nuevo |
 
 ---
 
@@ -120,6 +120,7 @@ ldoe-companion/
 | 2026-07-02 | F0.2, F0.3 | 2 | SPEC escrita con métrica machine-checkable; plan operativo como log vivo. Fase 0 cerrada |
 | 2026-07-02 | F1.1–F1.5 | 5 | Capa de datos completa: recetas (56 items), fuentes, 7 objetivos, cajas y validador. F1.4 en 🔄: falta el inventario real del jugador |
 | 2026-07-02 | F2.1–F2.3 | 3 | Motor determinista completo: resolve-deps (descuento en cascada), plan-route (agrupado por zona, md+json) y 12 tests verdes. Fase 2 cerrada; F1.4 sigue esperando datos del jugador |
+| 2026-07-02 | F3.1–F3.3 | 3 | Capa agente completa: SKILL.md (paridad UI↔data), flujo captura→datos + LEARNINGS.md fundacional, 3 prompts compuestos. Fase 3 cerrada; F1.4 en curso en otra sesión |
 
 ---
 
