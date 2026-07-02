@@ -64,7 +64,7 @@ ldoe-companion/
 | 1.1 | Esquema del grafo de recetas | `data/recipes.json` — cada item: `id, nombre, estacion, ingredientes[{id, qty}], verificado(wiki/ingame)` | `validate.mjs` pasa; ciclo prohibido (grafo acíclico) | ✅ | 2026-07-02 | 56 items; validate.mjs comprueba también la receta canónica |
 | 1.2 | Esquema de fuentes de farmeo | `data/sources.json` — material → zonas/eventos/drops con prioridad | Todo ingrediente hoja de recipes.json tiene fuente | ✅ | 2026-07-02 | 32 hojas cubiertas; 7 marcadas «por investigar» |
 | 1.3 | Cargar datos de la investigación | Los 7 objetivos ya investigados (Chopper, Bunker Alfa, set de piel, pantalones reforzados, ATV, motor lancha, muros N3) + cadenas de refinado | resolve-deps sobre "pantalones reforzados" reproduce tu captura (1/12/9/2/2/5) | ✅ | 2026-07-02 | Datos cotejados con la captura vía validate.mjs; re-verificar con resolve-deps en F2.1 |
-| 1.4 | Estado del jugador | `data/inventory.json` + `context.md` (nivel, edificios, estaciones construidas) | El agente responde "¿qué tengo?" leyendo solo estos ficheros | 🔄 | 2026-07-02 | Nivel 82, mochila y 13 estaciones volcados (3 capturas). En curso: contenido de las ~20-25 cajas + confirmar Reciclador/Cantero/Mesa médica |
+| 1.4 | Estado del jugador | `data/inventory.json` + `context.md` (nivel, edificios, estaciones construidas) | El agente responde "¿qué tengo?" leyendo solo estos ficheros | ✅ | 2026-07-02 | Nivel 82, mochila y 13 estaciones volcados (3 capturas). Cajas: pendientes por decisión de Alin, se volcarán incrementalmente con futuras capturas |
 | 1.5 | Organización de cajas | `data/boxes.json` — categorías, caja↔estación, contenido esperado | Cada material de recipes.json mapea a exactamente 1 categoría de caja | ✅ | 2026-07-02 | 10 categorías; mapeo 1-a-1 comprobado por validate.mjs |
 
 ---
@@ -120,6 +120,7 @@ ldoe-companion/
 | 2026-07-02 | F0.2, F0.3 | 2 | SPEC escrita con métrica machine-checkable; plan operativo como log vivo. Fase 0 cerrada |
 | 2026-07-02 | F1.1–F1.5 | 5 | Capa de datos completa: recetas (56 items), fuentes, 7 objetivos, cajas y validador. F1.4 en 🔄: falta el inventario real del jugador |
 | 2026-07-02 | F1.4 | 3 | F1.4 con 3 capturas: nivel 82, inventario de mochila, base y 13 estaciones; Chopper ya construido. Esta rama se dedica solo a F1.4; F2–F3 viven en claude/repo-status-check-2neqs3 |
+| 2026-07-02 | F1.4 ✅ | 1 | F1.4 cerrado por decisión de Alin: cajas incrementales, sin bloquear. Fase 1 completa. Pendiente global: consolidar esta rama (datos) con claude/repo-status-check-2neqs3 (F2+F3) |
 
 ---
 

@@ -36,5 +36,8 @@ dónde ir y cómo organizar su base, manteniendo `data/` como fuente de verdad.
   · Esta rama (claude/extract-zip-to-repo-bof24h): SOLO F1.4 — estado del jugador.
   · claude/repo-status-check-2neqs3: F2 (motor, mejor implementación) + F3 (skill+prompts).
   · Pendiente al final: consolidar ambas (la otra como base + los datos de F1.4 de esta).
-- F1.4 en curso. Hecho: nivel 82, mochila, base y 13 estaciones (3 capturas).
-  Falta: contenido de las ~20-25 cajas etiquetadas y confirmar Reciclador/Cantero/Mesa médica.
+- F1.4 CERRADO (decisión de Alin): nivel 82, mochila, base y 13 estaciones bastan.
+  El contenido de las ~20-25 cajas etiquetadas se volcará incrementalmente cuando lleguen
+  capturas sueltas; Reciclador/Cantero/Mesa médica siguen sin confirmar. Nada de esto bloquea.
+- Esta rama queda TERMINADA. Siguiente acción del proyecto: consolidar
+  (claude/repo-status-check-2neqs3 como base + los datos de F1.4 de esta rama) y llevar a main.
