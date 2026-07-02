@@ -28,7 +28,7 @@
 | # | Paso | Entregable | Verificación | Estado | Fecha | Notas |
 |---|------|-----------|--------------|--------|-------|-------|
 | 0.1 | Crear repo y estructura de carpetas | `git init` + `README.md` + árbol `data/ tools/ skills/ ui/ docs/` | `tree` muestra la estructura; primer commit pusheado | ✅ | 2026-07-02 | Bootstrap reconciliado: ficheros del zip movidos a la raíz |
-| 0.2 | Escribir SPEC (estilo REASONS) | `docs/SPEC.md`: requisitos, entidades, métrica de éxito única | La métrica es machine-checkable (ver Fase 5.3) | ⬜ | | |
+| 0.2 | Escribir SPEC (estilo REASONS) | `docs/SPEC.md`: requisitos, entidades, métrica de éxito única | La métrica es machine-checkable (ver Fase 5.3) | ✅ | 2026-07-02 | Métrica: resolve-deps reproduce la receta verificada (1/12/9/2/2/5) |
 | 0.3 | Instalar este plan como log vivo | `PLAN.md` en la raíz | El agente puede leer/actualizar estados con str_replace | ⬜ | | |
 
 **Estructura objetivo:**
