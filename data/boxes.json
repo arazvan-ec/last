@@ -24,7 +24,7 @@
       "nombre": "Textiles y cuero",
       "cajas": 2,
       "junto_a": "Curtidor + Mesa de costura",
-      "materiales": ["fibra", "trozo-tela", "tela-gruesa", "trozo-lana", "tela-lana", "piel", "piel-curtida", "cuero-crudo", "cuero"]
+      "materiales": ["fibra", "trozo-tela", "tela-gruesa", "trozo-lana", "tela-lana", "piel", "piel-curtida", "cuero-crudo", "cuero", "cuerda"]
     },
     {
       "id": "componentes-vehiculo",
@@ -43,14 +43,14 @@
       "nombre": "Comida y agua",
       "cajas": 2,
       "junto_a": "Huerto / Secadero",
-      "materiales": []
+      "materiales": ["guiso-cocinado", "botella-de-agua", "bayas", "te-de-bayas", "lata-de-comida", "setas", "semillas"]
     },
     {
       "id": "medicinas",
       "nombre": "Medicinas",
       "cajas": 1,
       "junto_a": "Mesa médica",
-      "materiales": []
+      "materiales": ["vendas", "pack-medicinas-evento"]
     },
     {
       "id": "ropa-armadura",
@@ -67,7 +67,7 @@
       "nombre": "Para reciclar",
       "cajas": 2,
       "junto_a": "Reciclador",
-      "materiales": []
+      "materiales": ["memoria-usb"]
     },
     {
       "id": "valiosos-eventos",
@@ -81,7 +81,7 @@
       "nombre": "Consumibles de expedición",
       "cajas": 1,
       "junto_a": "Salida de la base",
-      "materiales": []
+      "materiales": ["racion-comida-evento"]
     }
   ]
 }
