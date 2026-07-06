@@ -1,0 +1,87 @@
+{
+  "descripcion": "Organización de cajas de la base. Principios: 1 tipo de recurso por caja; cada caja pegada a la estación que la consume. Cada item de recipes.json mapea a exactamente 1 categoría (lo valida validate.mjs). cajas = nº orientativo.",
+  "categorias": [
+    {
+      "id": "construccion",
+      "nombre": "Materiales de construcción",
+      "cajas": 4,
+      "junto_a": "Carpintería / Mesa del cantero",
+      "materiales": ["tronco-pino", "tronco-roble", "tablon-pino", "tablon-roble", "caliza", "ladrillo-piedra"]
+    },
+    {
+      "id": "metales",
+      "nombre": "Metales y placas",
+      "cajas": 4,
+      "junto_a": "Fundición + Banco de trabajo",
+      "materiales": [
+        "mineral-hierro", "mineral-cobre", "mineral-titanio", "bauxita", "cable-aluminio", "chatarra", "carbon",
+        "lingote-hierro", "lingote-aluminio", "lingote-cobre", "lingote-acero", "lingote-titanio",
+        "placa-hierro", "placa-aluminio", "placa-acero", "clavos", "pernos"
+      ]
+    },
+    {
+      "id": "textiles-cuero",
+      "nombre": "Textiles y cuero",
+      "cajas": 2,
+      "junto_a": "Curtidor + Mesa de costura",
+      "materiales": ["fibra", "trozo-tela", "tela-gruesa", "trozo-lana", "tela-lana", "piel", "piel-curtida", "cuero-crudo", "cuero"]
+    },
+    {
+      "id": "componentes-vehiculo",
+      "nombre": "Componentes de vehículo y mecánica",
+      "cajas": 3,
+      "junto_a": "Chopper / ATV",
+      "materiales": [
+        "piezas-motor", "cableado", "rodamientos", "piezas-goma", "adhesivo", "plastico",
+        "ruedas-chopper", "horquilla-chopper", "deposito-chopper",
+        "ruedas-atv", "transmision-atv", "deposito-atv",
+        "helice", "llave-inglesa", "filtro-aire"
+      ]
+    },
+    {
+      "id": "comida-agua",
+      "nombre": "Comida y agua",
+      "cajas": 2,
+      "junto_a": "Huerto / Secadero",
+      "materiales": []
+    },
+    {
+      "id": "medicinas",
+      "nombre": "Medicinas",
+      "cajas": 1,
+      "junto_a": "Mesa médica",
+      "materiales": []
+    },
+    {
+      "id": "ropa-armadura",
+      "nombre": "Ropa y armadura",
+      "cajas": 2,
+      "junto_a": null,
+      "materiales": [
+        "mochila-basica", "gorro-piel", "chaqueta-piel", "pantalones-piel", "botas-piel",
+        "pantalones-piel-reforzados", "gorro-piel-reforzado", "chaqueta-piel-reforzada"
+      ]
+    },
+    {
+      "id": "para-reciclar",
+      "nombre": "Para reciclar",
+      "cajas": 2,
+      "junto_a": "Reciclador",
+      "materiales": []
+    },
+    {
+      "id": "valiosos-eventos",
+      "nombre": "Valiosos y eventos",
+      "cajas": 1,
+      "junto_a": null,
+      "materiales": ["carta-cac-a"]
+    },
+    {
+      "id": "expedicion",
+      "nombre": "Consumibles de expedición",
+      "cajas": 1,
+      "junto_a": "Salida de la base",
+      "materiales": []
+    }
+  ]
+}

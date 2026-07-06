@@ -1,0 +1,122 @@
+{
+  "descripcion": "Dónde se obtiene cada material hoja del grafo. prioridad 1 = mejor fuente. Las entradas 'por investigar' cumplen el invariante de cobertura pero señalan huecos de investigación.",
+  "materiales": {
+    "tronco-pino": { "fuentes": [
+      { "lugar": "Zonas de pino (verde/amarilla)", "prioridad": 1 },
+      { "lugar": "Airdrops del Motel", "prioridad": 2 }
+    ] },
+    "tronco-roble": { "fuentes": [
+      { "lugar": "Oak Bushes / Oak Grove / Oak Wood (rojas, requieren ATV)", "prioridad": 1 },
+      { "lugar": "Sótanos", "prioridad": 2 }
+    ] },
+    "caliza": { "fuentes": [
+      { "lugar": "Limestone Ridge (verde)", "prioridad": 1 },
+      { "lugar": "Limestone Cliffs (amarilla)", "prioridad": 2 },
+      { "lugar": "Spires (roja)", "prioridad": 3 }
+    ] },
+    "mineral-hierro": { "fuentes": [
+      { "lugar": "Limestone Cliffs (amarilla)", "detalle": "mejor ratio de hierro", "prioridad": 1 },
+      { "lugar": "Limestone Ridge (verde)", "prioridad": 2 },
+      { "lugar": "Spires (roja)", "prioridad": 3 }
+    ] },
+    "chatarra": { "fuentes": [
+      { "lugar": "Loot general de zonas y bunkers", "prioridad": 1 },
+      { "lugar": "Reciclador (cofres, hélices)", "prioridad": 2 }
+    ] },
+    "bauxita": { "fuentes": [
+      { "lugar": "Zonas rojas con hierro", "prioridad": 1 },
+      { "lugar": "Nodos de Frosty Backwoods", "prioridad": 2 }
+    ] },
+    "cable-aluminio": { "fuentes": [
+      { "lugar": "Bunker Alfa pisos 2-3", "detalle": "~7 por vuelta", "prioridad": 1 },
+      { "lugar": "Airdrops", "prioridad": 2 }
+    ] },
+    "mineral-cobre": { "fuentes": [
+      { "lugar": "Frosty Backwoods (roja fría)", "prioridad": 1 },
+      { "lugar": "Sótano inundado de zona roja", "prioridad": 2 }
+    ] },
+    "mineral-titanio": { "fuentes": [
+      { "lugar": "Isla — Sand Quarry", "prioridad": 1 },
+      { "lugar": "Puerto", "prioridad": 2 },
+      { "lugar": "Reciclar hélice / transmisión / fragmentos de armadura", "prioridad": 3 }
+    ] },
+    "fibra": { "fuentes": [
+      { "lugar": "Recolección en cualquier zona (arbustos)", "prioridad": 1 }
+    ] },
+    "trozo-lana": { "fuentes": [
+      { "lugar": "Animales del norte", "prioridad": 1 }
+    ] },
+    "cuero-crudo": { "fuentes": [
+      { "lugar": "Lobos y ciervos (todo el mapa)", "prioridad": 1 }
+    ] },
+    "piel": { "fuentes": [
+      { "lugar": "Zorros, ciervos del norte, lobos rabiosos, jabalíes (zonas frías/roble)", "prioridad": 1 }
+    ] },
+    "adhesivo": { "fuentes": [
+      { "lugar": "Cofres de zonas amarillas y bunkers", "prioridad": 1 }
+    ] },
+    "plastico": { "fuentes": [
+      { "lugar": "Reciclar cartas CAC", "prioridad": 1 },
+      { "lugar": "Loot de zonas y bunkers", "prioridad": 2 }
+    ] },
+    "piezas-motor": { "fuentes": [
+      { "lugar": "Cajas de cupones de Bunker Alfa", "prioridad": 1 },
+      { "lugar": "Bunker Bravo", "detalle": "1 por visita", "prioridad": 2 },
+      { "lugar": "Bases NPC y airdrops", "prioridad": 3 },
+      { "lugar": "Granero de Crooked Creek", "prioridad": 4 }
+    ] },
+    "cableado": { "fuentes": [
+      { "lugar": "por investigar", "prioridad": 99 }
+    ] },
+    "rodamientos": { "fuentes": [
+      { "lugar": "por investigar", "prioridad": 99 }
+    ] },
+    "piezas-goma": { "fuentes": [
+      { "lugar": "por investigar", "prioridad": 99 }
+    ] },
+    "ruedas-chopper": { "fuentes": [
+      { "lugar": "Cajas de cupones de Alfa (amarillas/rojas)", "prioridad": 1 }
+    ] },
+    "horquilla-chopper": { "fuentes": [
+      { "lugar": "Cajas de cupones de Alfa (amarillas/rojas)", "prioridad": 1 }
+    ] },
+    "deposito-chopper": { "fuentes": [
+      { "lugar": "Piso 1 de Bunker Alfa", "detalle": "drop raro", "prioridad": 1 }
+    ] },
+    "mochila-basica": { "fuentes": [
+      { "lugar": "Crafteo a mano / loot temprano", "prioridad": 1 }
+    ] },
+    "carta-cac-a": { "fuentes": [
+      { "lugar": "Zombis de zonas verde/amarilla", "prioridad": 1 },
+      { "lugar": "Convoy destruido", "prioridad": 2 },
+      { "lugar": "Airdrop", "prioridad": 3 }
+    ] },
+    "ruedas-atv": { "fuentes": [
+      { "lugar": "por investigar", "prioridad": 99 }
+    ] },
+    "transmision-atv": { "fuentes": [
+      { "lugar": "Gasolinera", "detalle": "jackpot 3 tapas", "prioridad": 1 },
+      { "lugar": "Puerto / Transport Hub", "prioridad": 2 },
+      { "lugar": "Commune Trials (pesadilla)", "prioridad": 3 }
+    ] },
+    "deposito-atv": { "fuentes": [
+      { "lugar": "por investigar", "prioridad": 99 }
+    ] },
+    "helice": { "fuentes": [
+      { "lugar": "Alcantarillas del Puerto", "prioridad": 1 },
+      { "lugar": "Reputación Genesis", "prioridad": 2 }
+    ] },
+    "llave-inglesa": { "fuentes": [
+      { "lugar": "por investigar", "prioridad": 99 }
+    ] },
+    "filtro-aire": { "fuentes": [
+      { "lugar": "por investigar", "prioridad": 99 }
+    ] },
+    "gorro-piel": { "fuentes": [
+      { "lugar": "Crafteo en Mesa de costura", "detalle": "receta por verificar in-game", "prioridad": 1 }
+    ] },
+    "chaqueta-piel": { "fuentes": [
+      { "lugar": "Crafteo en Mesa de costura", "detalle": "receta por verificar in-game", "prioridad": 1 }
+    ] }
+  }
+}
