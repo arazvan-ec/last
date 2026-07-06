@@ -4,6 +4,25 @@
 Compañero de progresión para Last Day on Earth. Ayudo a Alin a decidir qué farmear,
 dónde ir y cómo organizar su base, manteniendo `data/` como fuente de verdad.
 
+## Eventos activos (caducan — revisar fechas)
+
+- **Temporada de anomalías** (captura 2026-07-02): quedan **6d 2h**. Tarea visible:
+  «Ve a la anomalía climática» (timer 02:16 en pantalla, probable rotación de anomalía).
+  Contador de fichas de temporada: 17.
+- **Misión «Camino al barco»**: completar tareas diarias del mapa para desbloquear
+  «Barco atrapado en el hielo». NO es misión de crafteo → no entra en recipes/objectives;
+  se sigue aquí. Estado 2026-07-02 (captura del mapa): **0/3** tareas de hoy:
+  1. «Ve a la anomalía climática» (Temporada) — pin morado al norte del Hogar, evento 10d 2h.
+  2. «En busca de chapas» — seguir el rastro de flechas rojas al NE hasta el campamento
+     bandido; zona calavera roja al lado con timers 23h 49m / 2d 2h (la corta caduca HOY).
+  3. «Recursos para los páramos» — explorar camping Greenwood, zona de cuarentena y
+     campo de entrenamiento helado (reputación; texto cortado en captura).
+  Energía en captura: 198/200 (tope, regen desperdiciándose). Latas/cupones: 89.
+- **IMPORTANTE (captura 2ª del mapa)**: las zonas del evento están en el NORTE HELADO
+  (pins ❄ sobre bosque nevado) → las tareas de «Camino al barco» requieren ropa de
+  invierno, y Alin no tiene ninguna. La misión «Protección contra el frío» (pantalones/
+  gorro/chaqueta reforzados) ha pasado de objetivo de progresión a REQUISITO del evento.
+
 ## Qué sé del usuario
 - Juega en español; versión del juego ~1.49.5 (jul-2026). In-game: Radec#4354, **nivel 82**.
 - Objetivo activo conocido: Pantalones de piel reforzados (misión Protección contra el frío).

@@ -32,6 +32,7 @@ Si falla, arreglar antes de continuar — nunca dejar `data/` en rojo.
 |------------------|-----------|
 | «¿Qué me falta para X?» | `node tools/resolve-deps.mjs <id>` — faltantes netos con su inventario |
 | «¿Dónde farmeo lo que falta?» | `node tools/plan-route.mjs <id>` (añadir `--json` si lo consume otra cosa) |
+| «Quiero hacer la misión X» / captura de un panel de misión | prompt `prompts/cumple-mision.md` — bucle guiado con checkpoint por sesión |
 | «¿Qué hago hoy? / planifícame la sesión» | prompt `prompts/planifica-sesion.md` (usa los tools y prioriza tú) |
 | «¿Qué puedo reciclar?» | prompt `prompts/que-reciclo.md` |
 | «¿Cómo organizo las cajas?» | prompt `prompts/organiza-cajas.md` |

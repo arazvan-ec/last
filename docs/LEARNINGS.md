@@ -31,6 +31,18 @@ Formato de entrada:
 
 ---
 
+## 2026-07-02 — Gorro de piel reforzado (v1.49.5) — verificación, sin cambios
+
+- Fuente: captura de Alin, pantalla PLANOS (misión Protección contra el frío).
+- Antes: receta wiki `1 Gorro de piel + 9 Piel curtida + 5 Tela de lana + 1 Cuero +
+  1 Lingote de cobre + 3 Placa de hierro`, `verificado: "wiki"`.
+- Después: la captura confirma la wiki 1:1 → `verificado: "ingame"`. Stats vistas:
+  armadura 6 · frío 4 · plaga 1. La captura además reveló stock real (piel curtida 11,
+  tela de lana 43, placa de hierro 19, cobre 2) → volcado a inventory.json.
+- Ficheros tocados: `data/recipes.json`, `data/inventory.json`.
+- Sigue pendiente: receta del Gorro de piel BASE (hoja provisional) — abrir su plano
+  y capturar.
+
 ## 2026-07-02 — Pantalones de piel reforzados (v1.49.5)
 
 - Fuente: captura in-game de Alin (misión «Protección contra el frío»).
