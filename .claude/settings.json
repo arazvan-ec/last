@@ -32,6 +32,18 @@
           }
         ]
       }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/flywheel/bin/read-prime.sh",
+            "timeout": 5
+          }
+        ],
+        "matcher": "Read"
+      }
     ]
   }
 }
