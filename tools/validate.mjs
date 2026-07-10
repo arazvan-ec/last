@@ -72,6 +72,16 @@ if (existsSync(dataPath('sources.json'))) {
   );
   const refsFuente = Object.keys(sources.materiales).filter((id) => !items.has(id));
   check(refsFuente.length === 0, `sources: no referencia items inexistentes${refsFuente.length ? ` (${refsFuente.join(', ')})` : ''}`);
+  // energia es opcional (plan-route ordena por ella cuando existe); si está, debe ser entero > 0
+  const fuentes = Object.values(sources.materiales).flatMap((m) => m.fuentes ?? []);
+  const energiaMala = fuentes.filter(
+    (f) => 'energia' in f && !(Number.isInteger(f.energia) && f.energia > 0)
+  );
+  const conEnergia = fuentes.filter((f) => 'energia' in f).length;
+  check(
+    energiaMala.length === 0,
+    `sources: energia opcional válida (${conEnergia} fuentes la definen)${energiaMala.length ? ` (inválidas: ${energiaMala.map((f) => `${f.lugar}=${f.energia}`).join(', ')})` : ''}`
+  );
 } else {
   console.log('· sources.json aún no existe — check omitido');
 }
